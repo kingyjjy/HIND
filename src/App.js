@@ -6,23 +6,16 @@ import {auth, db} from './config/firebase'
 import { AuthProvider } from './context/AuthProvider';
 import { collection, getDocs, where, query, serverTimestamp } from 'firebase/firestore';
 import PrivateRoute from './context/PrivateRoute';
-import ImageMap from './pages/ImageMap';
 import Main from './pages/Main'
 import Login from './pages/Login';
 import UserInfo from './pages/UserInfo';
 import Register from './pages/Register';
-import HealthInfo from './pages/HealthInfo';
-import ObjList from './components/ObjList';
-import InfoDetail from './pages/InfoDetail';
-import ReservList from './pages/ReservList';
-import Reservation from './pages/Reservation';
 import TopNav from './layout/TopNav';
 import Footer from './layout/Footer';
 import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
 import LoggedTop from './layout/LoggedTop';
 import UserinfoEdit from './pages/UserinfoEdit';
-import TopButton from './components/TopButton';
 
 
 

@@ -1,0 +1,74 @@
+.detail-img{
+    width: 350px;
+    height: 350px;
+    border: 1px solid #d8d6d6;
+    border-radius: 50px;
+  }
+  
+  .time-text>.time{
+    margin-right: 5px;
+  }
+  
+  .detail-title h1{
+    font-size: 28px;
+    border-bottom: 1px solid #aba9a9;
+    padding-bottom: 15px;
+  }
+  
+  .detail-box h1{
+    font-size: 28px;
+    font-weight: 800;
+    border-width:5px;
+    padding-top: 10px;
+  }
+  
+  .p-transport h1{
+    font-size: 23px;
+    font-weight: 800;
+    color: rgb(135, 120, 120);
+    padding-top: 10px;
+  }
+  
+  .p-transport h1::before{
+    content: "";
+    display: block;
+    width: 150px;
+    height: 3px;
+    margin-bottom: 16px;
+    background-color: #3E54AC;
+  }
+  
+  .p-transport p{
+    color:#807e7e;
+  }
+  
+  .p-transport span{
+    margin-right: 8px;
+  }
+  
+  .bus, .parking{
+    margin-top: 60px;
+  }
+  
+  .p-transport li{
+    padding-bottom: 10px;
+  }
+  
+  .detail-reservation{
+    position: relative;
+    top: 100px;
+  }
+  
+  .detail-reservation>.reserv-btn{
+    position:absolute;
+    padding: 10px 40px;
+    border-radius: 20px;
+    background-color: #3E54AC;
+    align-items: center;
+    justify-content: center;
+    border: none;
+  }
+  
+  .detail-reservation>.reserv-btn> a{
+    color: #fff;
+  }

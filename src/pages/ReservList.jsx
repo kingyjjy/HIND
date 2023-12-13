@@ -1,5 +1,6 @@
 import React from 'react'
 import TopNav from '../layout/TopNav';
+import '../assets/css/reservlist.css';
 
 const ReservList = () => {
   return (

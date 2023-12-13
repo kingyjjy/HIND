@@ -2,6 +2,11 @@
 .category{
     padding-top: 200px;
   }
+
+  .category a{
+    color: #333;
+    text-decoration: none;
+  }
   
   .category h2{
     padding-top: 80px;

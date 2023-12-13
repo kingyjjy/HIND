@@ -79,7 +79,7 @@ const Popup = () => {
             </p>
             <p className={styles.text}>
               해당 사이트는 포트폴리오용으로<br></br>
-              회원가입 시 개인정보를 입력할 경우<br></br>실제 저장되오니 주의 바랍니다.
+              회원가입 시 실제 정보를 입력할 경우<br></br>개인정보 노출 위험이 있으니 주의 바랍니다.
             </p>
             <div className={styles.input_container}>
               <input type="checkbox" id='checkbox' className={styles.checkbox} onChange={handleChange} />

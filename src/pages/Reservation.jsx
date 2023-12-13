@@ -1,6 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import TopNav from '../layout/TopNav';
+import '../assets/css/reservation.css';
 
 const Reservation = () => {
     const location = useLocation();

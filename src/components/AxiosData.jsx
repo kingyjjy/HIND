@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
 import { Link , useLocation} from 'react-router-dom';
-import { Nav, Tab, Col, Row} from 'react-bootstrap';
+import { Nav, Tab, Col } from 'react-bootstrap';
 import '../assets/css/axiosdata.css';
 
 const AxiosData = ({burl}) => {

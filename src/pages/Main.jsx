@@ -7,7 +7,8 @@ import Search from '../layout/Search'
 import Footer from '../layout/Footer'
 import ApiList from '../components/ApiList'
 import Info from '../components/Info'
-import Cservice from '../layout/Cservice'
+import Cservice from '../layout/Cservice';
+import Popup from '../components/Popup';
 
 
 const Main = () => {
@@ -19,18 +20,20 @@ const Main = () => {
         <>
           <LoggedTop/>
           <Search/>
-          <ApiList />
+          <Popup/>
+          <ApiList/>
           <Info />
-          <Cservice />
+          <Cservice/>
           <Footer/>
         </>
         ):(
           <>
             <TopNav/>
             <Search/>
-            <ApiList />
+            <Popup/>
+            <ApiList/>
             <Info />
-            <Cservice />
+            <Cservice/>
             <Footer/>
           </>
         )

@@ -7,6 +7,8 @@ import { IoBookmarksOutline } from "react-icons/io5";
 import { IoBookmarks } from "react-icons/io5";
 import { useLocation } from 'react-router-dom'
 import TopNav from '../layout/TopNav';
+import Footer from '../layout/Footer';
+import '../assets/css/infodetail.css';
 
 const InfoDetail = () => {
     const location = useLocation();
@@ -89,10 +91,11 @@ const InfoDetail = () => {
                     </div>
                 </div>
             </div>
-            <div className="map mb-5">
+            <div className="map mt-5 mb-5">
                 <MapContainer/>
             </div>
         </div>
+        <Footer/>
     </>
   )
 }

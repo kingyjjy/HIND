@@ -1,0 +1,66 @@
+.obj-title{
+    margin-bottom: 120px;
+}
+.obj-title h1{
+    margin: 80px 0px;
+    font-size: 33px;
+}
+
+.obj-title h1 p{
+    font-size: 12px;
+    color: #bab9b9;
+    margin-top: 14px;
+}
+.obj-list{
+    /* border: 1px solid #333; */
+    height: auto;
+    border-radius: 15px;
+}
+
+.dropdown-menu{
+    --bs-dropdown-link-active-bg:none;
+    --bs-dropdown-link-hover-color:#3E54AC;
+    --bs-dropdonw-link-hover-bg:#bab9b9 !important;
+}
+
+
+.obj-list .list-header a{
+    display: block;
+    width: 30%;
+    text-align: center;
+    font-weight: 700;
+}
+
+.obj-list .list-header span{
+    font-weight: 700;
+    text-align: center;
+}
+
+
+.obj-list .lists, .obj-list .list-header{
+    padding: 30px;
+    font-size: 20px;
+    border-bottom: 1px dotted #333;
+    width: 90%;   
+    display: flex; 
+}
+
+.obj-list .lists:hover{
+    background-color: #e7e3e3;
+    cursor: pointer;
+}
+.obj-list a{
+    display: block;
+    width: 30%;
+}
+
+
+.obj-list span{
+    margin-left: 6%;
+    width: 70%;
+}
+
+.obj-list div:first-child{
+    border-top: 1px solid #333;
+    width: 90%;
+}

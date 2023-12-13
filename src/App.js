@@ -45,10 +45,16 @@ const App = () => {
         <Routes>
           {/* {isLogged?(<Route path='/' element={<><LoggedTop/><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           {/* {isLogged?(<Route path='/' element={<><PrivateRoute><LoggedTop/></PrivateRoute><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
-          <Route path='/' element={<Main/>}/>
+          <Route path='/' element={<ImageMap/>}></Route>
+          <Route path='/main' element={<Main/>}></Route>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
+          <Route path='/healthinfo' element={<HealthInfo/>}/>
+          <Route path='/detail' element={<InfoDetail/>}/>
+          <Route path='/reservation' element={<Reservation/>}/>
+          <Route path='/reserv-list' element={<ReservList/>}/>
+          <Route path='/objlist' element={<ObjList/>}/>
           {/* {isLogged ?(<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)} */}
           {/* <Route path='/info' element={<UserInfo/>}/> */}
           <Route path='/info' element={

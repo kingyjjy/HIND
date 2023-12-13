@@ -1,0 +1,26 @@
+.search-list h1{
+    margin-top: 150px;
+    font-size: 33px;
+}
+
+.searchbox{
+    width: 30%;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+.searchbox input{
+    width: 100%;
+    border-radius: 50px !important;
+    border: 3px solid #3E54AC;
+}
+
+.sear-icon{
+    left:300px;
+    top: 12px;
+}
+
+.search-list .search-item{
+    height: 500px;
+}

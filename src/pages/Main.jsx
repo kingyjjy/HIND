@@ -5,8 +5,10 @@ import TopNav from '../layout/TopNav'
 import LoggedTop from '../layout/LoggedTop'
 import Search from '../layout/Search'
 import Footer from '../layout/Footer'
-import Category from '../components/Category'
+import ApiList from '../components/ApiList'
 import Info from '../components/Info'
+import Cservice from '../layout/Cservice'
+import Popup from '../components/Popup'
 
 
 const Main = () => {
@@ -18,16 +20,20 @@ const Main = () => {
         <>
           <LoggedTop/>
           <Search/>
-          <Category />
+          <Popup/>
+          <ApiList/>
           <Info />
+          <Cservice/>
           <Footer/>
         </>
         ):(
           <>
             <TopNav/>
             <Search/>
-            <Category />
+            <Popup/>
+            <ApiList/>
             <Info />
+            <Cservice/>
             <Footer/>
           </>
         )

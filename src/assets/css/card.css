@@ -1,0 +1,204 @@
+/* HealthyInfo, InfoCard, HealthInfo, Info */
+
+/* Info.jsx */
+
+.main-info{
+  margin: 50px 0;
+  background-color: #f5f5f5;
+}
+
+.splide__arrow{
+    height: 3em !important;
+    width: 3em !important;
+    background: #fff !important;
+    box-shadow: 3px 3px 10px 2px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+  }
+  
+  .info-page{
+    padding-top: 160px !important;
+    padding-bottom: 200px;
+  }
+  
+  .info-page h1{
+    font-size: 26px;
+    font-weight: 600;
+  }
+  
+  .info-page > .info-header> h2, .category > h2{
+    font-size: 2.5rem;
+    margin-top: 30px;
+  }
+
+   .info-page .card{
+    --bs-card-border-color : none;
+   }
+
+  .splide__arrow--prev{
+    left:-25px !important;
+    top: 200px;
+  }
+  
+  .splide__arrow--next{
+    right:-20px !important;
+    top: 200px;
+  }
+  
+  .info-card .card-img{
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  
+  .healthy-card .card-img{
+    height: 160px;
+    object-fit: cover;
+    margin-bottom: 12px;
+  }
+  
+  .healthy-card{
+    transition: all 0.2s;
+  }
+  
+  .healthy-card:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+  }
+  
+  /* healthInfo.jsx */
+
+  .healthinfo-page h1{
+    padding-top: 200px;
+  }
+  .paging{
+    width: 450px;
+    min-height: 40px;
+    margin: 30px auto 0;
+    text-align: center;
+    margin-bottom: 300px;
+  }
+  
+  .paging .first, .paging .last{
+    background-position: 0 -62px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    padding: 10px;
+  }
+  
+  .paging .first{
+    margin-right: 5px;
+  }
+  
+  .paging .last{
+    margin-left: 5px;
+  }
+  
+  .paging .in{
+    background-position: 0 -62px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 40px;
+    height: 40px;
+    border-radius: 2px;
+    padding: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+  
+  }
+  
+  .paging .num{
+    border-radius: 50%;
+    width: 50%;
+    height: 50%;
+    padding: 15px 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    font-weight: 500;
+  }
+  
+  .paging >.active{
+    background-color: #3E54AC !important;
+    color: #fff;
+  }
+  
+  .pplus{
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pplus a{
+    padding: 20px 30px;
+    border: 1px solid #b3b2b2;
+    border-radius: 15px;
+    margin-top: 30px;
+  }
+
+
+  /* infoCard.jsx - main */
+
+.info-card .card-title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .info-card .card-text{
+    -webkit-line-clamp: 3; 
+    -webkit-box-orient: vertical; 
+    display: -webkit-box; 
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+  }
+  
+  .healthy-card .card-title{
+    font-size: 16px;
+    font-weight: 600;
+  
+  }
+  .card-titlebox .card-title{
+    height: 60px;
+  }
+  
+  .card-text{
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #a09f9f;
+    font-size: 15px;
+  }
+  
+  .card-btn{
+    display: flex;
+    justify-content:flex-end;
+  }
+  
+  .card-btn a{
+    color: #a09f9f;
+  }
+  
+  .info-header > .plus{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+  
+  .info-header > .plus > a{
+    color: #333;
+  }
+  
+
+  .overlay{
+    position:absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0) 0%, rgb(255,255,255) 90%);
+  }

@@ -6,7 +6,6 @@ import {auth, db} from './config/firebase'
 import { AuthProvider } from './context/AuthProvider';
 import { collection, getDocs, where, query, serverTimestamp } from 'firebase/firestore';
 import PrivateRoute from './context/PrivateRoute';
-
 import Main from './pages/Main'
 import Login from './pages/Login';
 import UserInfo from './pages/UserInfo';
@@ -48,6 +47,7 @@ const App = () => {
   return (
     <Router>
       <AuthProvider value={{userinfo, isLogged}}>
+        <TopButton/>
         <Routes>
           {/* {isLogged?(<Route path='/' element={<><LoggedTop/><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           {/* {isLogged?(<Route path='/' element={<><PrivateRoute><LoggedTop/></PrivateRoute><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}

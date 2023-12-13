@@ -4,6 +4,7 @@ import { healthyInfo } from '../data/data';
 import '../assets/css/card.css';
 import TopNav from '../layout/TopNav';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdOutlineKeyboardArrowRight  } from "react-icons/md";
+import Footer from '../layout/Footer';
 
 
 const HealthInfo = () => {
@@ -37,6 +38,7 @@ const HealthInfo = () => {
                 </div> */}
                 
     </div>
+    <Footer/>
     </>
   )
 }

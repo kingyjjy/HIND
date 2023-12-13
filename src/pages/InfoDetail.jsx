@@ -22,7 +22,7 @@ const InfoDetail = () => {
   return (
     <>
     <TopNav/>
-        <div className="container">
+        <div className="container detail-all">
             <div className="section">
                 <div className="detail-title mt-5">
                     <h1>병원 상세</h1>

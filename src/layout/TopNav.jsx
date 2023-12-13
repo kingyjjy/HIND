@@ -1,12 +1,8 @@
 import React,{useState} from 'react'
-import { NavDropdown,Container,Nav, Navbar, Row, Col, Offcanvas  } from 'react-bootstrap'
-import { auth } from '../config/firebase'
-import { useNavigate } from 'react-router-dom'
 import {GiHearts} from 'react-icons/gi'
+import { NavDropdown,Container,Nav, Navbar, Row, Col, Offcanvas } from 'react-bootstrap'
 import {GrUser,GrUserManager,GrBook,GrUserSettings} from 'react-icons/gr'
-import { GoPerson } from "react-icons/go";
-import { Link, location } from 'react-router-dom'
-import { signOut } from 'firebase/auth'
+import { Link } from 'react-router-dom'
 
 
 const TopNav = () => {
@@ -22,15 +18,6 @@ const TopNav = () => {
     }
     const handleClose = ()=>setShow(false);
     const handelShow = ()=>setShow(true);
-    // const [email, name, uicon] = useAuthValue();
-    // const onPress = async()=>{
-    //     const dbref = collection(db, 'userinfo');
-    //     await addDoc(dbref, {
-    //         timestamp:serverTimestamp(),
-    //         email,
-    //         user:name
-    //     });
-    // }
   return (
     <>  
         <Nav className="navbar navbar-expand-lg bg-white">
@@ -92,40 +79,29 @@ const TopNav = () => {
                                     
                                 </Col>
                                 <Col lg='3'>
-                                    <NavDropdown.Item><Link to="/objlist" state={{mobj:obj[13]}}>정형외과</Link></NavDropdown.Item>
-                                    <NavDropdown.Item><Link to="/objlist" state={{mobj:obj[14]}}>치과</Link></NavDropdown.Item>
-                                    <NavDropdown.Item><Link to="/objlist" state={{mobj:obj[15]}}>피부과</Link></NavDropdown.Item>
-                                    <NavDropdown.Item><Link to="/objlist" state={{mobj:obj[16]}}>한방과</Link></NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>진단검사의학과</NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>치과</NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>피부과</NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>한방과</NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>핵의학과</NavDropdown.Item>
+                                    <NavDropdown.Item href='#'>흉부외과</NavDropdown.Item>
                                 </Col>
                             </Row>
                         </div>
                     </NavDropdown>
-                    <Nav.Link href="/healthinfo">건강정보</Nav.Link>
-                    {/* <Nav.Link href="#">서비스안내</Nav.Link> */}
-                    <NavDropdown  title='서비스안내' id='basci-nav-dropdown' >
-                        <div style={{width:'80px'}}>
-                            <Row className='m-3'>
-                                <Col>
-                                    <NavDropdown.Item>FAQ</NavDropdown.Item>
-                                    <NavDropdown.Item>공지사항</NavDropdown.Item>                                    
-                                </Col>
-                                
-                            </Row>
-                        </div>
-                    </NavDropdown>
+                    <Nav.Link href="#">건강정보</Nav.Link>
+                    <Nav.Link href="#">서비스안내</Nav.Link>
                     
                 </Nav>
                 <div className='d-flex'>
-                    {/* <button type='button' className='btn me-2' data-bs-toggle='offcanvas' data-bs-target='#sidenav'><GrUser/></button> */}
-                    <button type='button' className='btn me-2' onClick={handelShow}><GoPerson size={29}/></button>
-                    <button type="button" onClick={logout} className='btn'>로그아웃</button>
-                    {/* <Link to="/login" className='link btn btn-outline-dark'>로그인</Link>  
-                    <Link to="/register" className='link btn btn-outline-dark mx-2'>회원가입</Link> */}
+                <button type='button' className='btn me-2' onClick={handelShow}><GrUser/></button>
+                    <Link to="/login" className='link btn btn-outline-dark'>로그인</Link>  
+                    <Link to="/register" className='link btn btn-outline-dark mx-2'>회원가입</Link>
                 </div>
                 {/* </div>   */}
             </Container>
         </Nav>
-         {/* sidebar notlogin*/}
+        {/* sidebar notlogin*/}
         <Offcanvas show={show} onHide={handleClose} placement={'end'}>
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>MyPage</Offcanvas.Title>
@@ -145,9 +121,10 @@ const TopNav = () => {
                 <Link to="/reserv-list" className="list-group-item list-group-item-action list-group-item-light p-3"><GrBook className='me-2'/> 예약내역</Link>
                 <p className='pt-2 text-end'><Link to="#" onClick={logout} className='link-dark'>logout</Link></p>
             </Offcanvas.Body>
-        </Offcanvas>
+        </Offcanvas> */}
         
         {/* /sidebar */}
+
     </>
   )
 }

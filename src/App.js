@@ -6,7 +6,6 @@ import {auth, db} from './config/firebase'
 import { AuthProvider } from './context/AuthProvider';
 import { collection, getDocs, where, query, serverTimestamp } from 'firebase/firestore';
 import PrivateRoute from './context/PrivateRoute';
-
 import Main from './pages/Main'
 import Login from './pages/Login';
 import UserInfo from './pages/UserInfo';

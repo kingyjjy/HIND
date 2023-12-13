@@ -1,11 +1,10 @@
 import React from 'react'
 import { useAuthValue } from '../context/AuthProvider'
-
 import TopNav from '../layout/TopNav'
 import LoggedTop from '../layout/LoggedTop'
 import Search from '../layout/Search'
 import Footer from '../layout/Footer'
-import ApiList from '../components/ApiList'
+
 import Info from '../components/Info'
 import Cservice from '../layout/Cservice';
 import Popup from '../components/Popup';
@@ -20,8 +19,7 @@ const Main = () => {
         <>
           <LoggedTop/>
           <Search/>
-          <Popup/>
-          <ApiList/>
+          <ApiList />
           <Info />
           <Cservice/>
           <Footer/>
@@ -30,8 +28,7 @@ const Main = () => {
           <>
             <TopNav/>
             <Search/>
-            <Popup/>
-            <ApiList/>
+            <ApiList />
             <Info />
             <Cservice/>
             <Footer/>

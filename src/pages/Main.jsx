@@ -21,7 +21,6 @@ const Main = () => {
           <Popup/>
           <ApiList/>
           <Info />
-         
           <Footer/>
         </>
         ):(
@@ -31,7 +30,6 @@ const Main = () => {
             <Popup/>
             <ApiList/>
             <Info />
-            
             <Footer/>
           </>
         )

@@ -17,6 +17,8 @@ const Main = () => {
         <>
           <LoggedTop/>
           <Search/>
+          <Popup/>
+          <ApiList/>
           <Info />
           <Footer/>
         </>
@@ -24,6 +26,8 @@ const Main = () => {
           <>
             <TopNav/>
             <Search/>
+            <Popup/>
+            <ApiList/>
             <Info />
             <Footer/>
           </>

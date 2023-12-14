@@ -4,9 +4,8 @@ import TopNav from '../layout/TopNav'
 import LoggedTop from '../layout/LoggedTop'
 import Search from '../layout/Search'
 import Footer from '../layout/Footer'
-
 import Info from '../components/Info'
-import Cservice from '../layout/Cservice'
+
 
 
 const Main = () => {
@@ -19,7 +18,6 @@ const Main = () => {
           <LoggedTop/>
           <Search/>
           <Info />
-          <Cservice />
           <Footer/>
         </>
         ):(
@@ -27,7 +25,6 @@ const Main = () => {
             <TopNav/>
             <Search/>
             <Info />
-            <Cservice />
             <Footer/>
           </>
         )

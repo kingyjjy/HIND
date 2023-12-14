@@ -5,10 +5,12 @@ import { RiCloseLine } from "react-icons/ri";
 import { RiErrorWarningLine } from "react-icons/ri";
 import { SiGithub } from "react-icons/si";
 import { GoPin } from "react-icons/go";
+import { FaMapPin } from "react-icons/fa";
 
 const Popup = () => {
   const [open, setOpen] = useState(true); // 쿠키 팝업
   const [popgit, setPopgit] = useState(true);
+  const [testpop, setTestpop] = useState(true);
   const [checked, setChecked] = useState(false);
   const [hasCookie, setHasCookie] = useState(true);
   const [cookies, setCookies] = useCookies();
@@ -21,6 +23,10 @@ const Popup = () => {
   const handleClosegit = () => {
     setPopgit(false);
   };
+
+  const handleClosetest = () => {
+    setTestpop(false);
+  }
 
   // 체크박스 클릭시
   const handleChange = (e) => {
@@ -63,6 +69,12 @@ const Popup = () => {
     }
   }, [popgit]);
 
+  useEffect(()=> {
+    if(!testpop){
+      return;
+    }
+  }, [testpop]);
+
   return (
     <>
     <div>
@@ -79,7 +91,7 @@ const Popup = () => {
             </p>
             <p className={styles.text}>
               해당 사이트는 포트폴리오용으로<br></br>
-              회원가입 시 개인정보를 입력할 경우<br></br>실제 저장되오니 주의 바랍니다.
+              회원가입 시 실제 정보를 입력할 경우<br></br>개인정보 노출 위험이 있으니 주의 바랍니다.
             </p>
             <div className={styles.input_container}>
               <input type="checkbox" id='checkbox' className={styles.checkbox} onChange={handleChange} />
@@ -92,32 +104,45 @@ const Popup = () => {
       ) : (
         ""
       )}
-    </div>
-    <div
+      </div>
+      <div
         className={`${styles.popup_background} ${
           popgit ? "" : styles.disappeared
         }`}  
         >
         <div className={styles.gitpopup}>
-          {/* <RiCloseLine className={styles.closeBtn} onClick={handleClosegit} />
-          <div className={styles.gittop}>GitHub</div>
-            <p className={styles.yjjy}>
-              <GoPin size={25} className={styles.members}/>김연지<a href='https://github.com/kingyjjy' className={styles.address}> 바로가기</a>
-            </p>
-            <p className={styles.joung}>
-              <GoPin size={25} className={styles.members}/>최민정 <a href='https://github.com/kjh27ss' className={styles.address}> 바로가기</a>
-            </p>             */}
             <div className={styles.gtop}>
               <RiCloseLine className={styles.closeBtn} onClick={handleClosegit} />
-              <div className={styles.gittop}>GitHub</div>
+              Team member
             </div>
-            <p className={styles.yjjy}>
-              <GoPin size={25} className={styles.members}/>김연지<a href='https://github.com/kingyjjy' className={styles.address}> 바로가기</a>
-            </p>
-            <p className={styles.joung}>
-              <GoPin size={25} className={styles.members}/>최민정 <a href='https://github.com/kjh27ss' className={styles.address}> 바로가기</a>
-            </p>          
+            <div className={styles.profile}>
+              <p className={styles.yjjy}>
+                <GoPin size={13} className={styles.pin}/>김연지<a href='https://github.com/kingyjjy' className={styles.now}> 바로가기</a>
+              </p>
+              <p className={styles.joung}>
+                <GoPin size={13} className={styles.pin}/>최민정 <a href='https://github.com/kjh27ss' className={styles.now}> 바로가기</a>
+              </p>    
+            </div>
+                  
+        </div>
+      </div>
+      <div
+        className={`${styles.popup_background} ${
+          testpop ? "" : styles.disappeared
+        }`}>
+      <div className={styles.testpopup}>
+          <div className={styles.testline}>
+            <div className={styles.test}>
+              <RiCloseLine className={styles.closeBtn} onClick={handleClosetest} />
+              테스트용
+              <p>아래 정보로 로그인 후 사이트를 이용해보세요!</p>
+            </div>
+            <div className={styles.sample}>
+              <p className='Sid'>아이디 : <span>meng9@naver.com</span></p>
+              <p className='Spass'>비밀번호 : <span>123123</span></p>
+            </div>
           </div>
+        </div>
       </div>
     </>
   );

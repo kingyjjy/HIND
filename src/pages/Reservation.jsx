@@ -45,9 +45,9 @@ const Reservation = () => {
                 </div>
                 <div className="col-3"></div>
             </div>
+            <Footer/>
     </div>
     </form>
-    <Footer/>
     </>
   )
 }

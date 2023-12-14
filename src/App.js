@@ -16,6 +16,13 @@ import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
 import LoggedTop from './layout/LoggedTop';
 import UserinfoEdit from './pages/UserinfoEdit';
+import TopButton from './components/TopButton';
+import ImageMap from './pages/ImageMap';
+import HealthInfo from './pages/HealthInfo';
+import InfoDetail from './pages/InfoDetail';
+import Reservation from './pages/Reservation';
+import ReservList from './pages/ReservList';
+import ObjList from './components/ObjList';
 
 
 

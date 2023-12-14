@@ -32,3 +32,6 @@
     height: 150px;
     background-size: cover;
   }
+  .offcanvas-header{
+    justify-content: end;
+  }

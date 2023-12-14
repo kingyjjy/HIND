@@ -93,7 +93,7 @@ const TopNav = () => {
                     
                 </Nav>
                 <div className='d-flex'>
-                <button type='button' className='btn me-2' onClick={handelShow}><GrUser/></button>
+                {/* <button type='button' className='btn me-2' onClick={handelShow}><GrUser/></button> */}
                     <Link to="/login" className='link btn btn-outline-dark'>로그인</Link>  
                     <Link to="/register" className='link btn btn-outline-dark mx-2'>회원가입</Link>
                 </div>
@@ -101,7 +101,7 @@ const TopNav = () => {
             </Container>
         </Nav>
         {/* sidebar notlogin*/}
-        <Offcanvas show={show} onHide={handleClose} placement={'end'}>
+        {/* <Offcanvas show={show} onHide={handleClose} placement={'end'}>
             <Offcanvas.Header closeButton>
                 <Offcanvas.Title>MyPage</Offcanvas.Title>
             </Offcanvas.Header>
@@ -120,7 +120,7 @@ const TopNav = () => {
                 <Link to="/reserv-list" className="list-group-item list-group-item-action list-group-item-light p-3"><GrBook className='me-2'/> 예약내역</Link>
                 <p className='pt-2 text-end'><Link to="#"  className='link-dark'>logout</Link></p>
             </Offcanvas.Body>
-        </Offcanvas>
+        </Offcanvas> */}
         
         {/* /sidebar */}
     </>

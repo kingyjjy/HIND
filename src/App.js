@@ -63,16 +63,13 @@ const App = () => {
           <Route path='/objlist' element={<ObjList/>}/>
           {/* {isLogged ?(<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)} */}
           {/* <Route path='/info' element={<UserInfo/>}/> */}
-          <Route path='/info' element={
-            <PrivateRoute>
-              <UserInfo/>
-            </PrivateRoute>
-          }/>
-          <Route path='/userinfo-edit' element={
+          {isLogged ? (<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)}
+          {isLogged ? (<Route path='/userinfo-edit' element={<UserinfoEdit/>}/>):(<Route path='/userinfo-edit' element={<NotLogin/>}/>)}
+          {/* <Route path='/userinfo-edit' element={
             <PrivateRoute>
               <UserinfoEdit/>
             </PrivateRoute>
-          }/>
+          }/> */}
           {isLogged ?(<Route path='/bookmark' element={<BookMark/>}/>):(<Route path='/bookmark' element={<NotLogin/>}/>)}
           {/* <Route path='/bookmark' element={<BookMark/>}/> */}
         </Routes>

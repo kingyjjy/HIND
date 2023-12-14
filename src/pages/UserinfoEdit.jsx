@@ -125,7 +125,7 @@ const UserInfo = () => {
             // }))
             if(photoURL !== null){
                 await updateProfile(user, {photoURL:photoURL})
-                .then(await db.collection('users').doc(`users/${uid}`).update({
+                .then(await updateDoc(doc(collection(db,'users',uid)),{
                     zonecode:newZonecode,
                     address:newaddress,
                     detailaddress:newdetailAdd,

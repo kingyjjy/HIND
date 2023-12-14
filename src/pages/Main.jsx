@@ -1,6 +1,5 @@
 import React from 'react'
 import { useAuthValue } from '../context/AuthProvider'
-
 import TopNav from '../layout/TopNav'
 import LoggedTop from '../layout/LoggedTop'
 import Search from '../layout/Search'

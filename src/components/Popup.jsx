@@ -117,10 +117,12 @@ const Popup = () => {
             </div>
             <div className={styles.profile}>
               <p className={styles.yjjy}>
-                <GoPin size={13} className={styles.pin}/>김연지<a href='https://github.com/kingyjjy' className={styles.now}> 바로가기</a>
+                {/* <GoPin size={27} className={styles.pin}/> */}
+                김연지<a href='https://github.com/kingyjjy' className={styles.now}>click!</a>
               </p>
               <p className={styles.joung}>
-                <GoPin size={13} className={styles.pin}/>최민정 <a href='https://github.com/kjh27ss' className={styles.now}> 바로가기</a>
+                {/* <GoPin size={27} className={styles.pin}/> */}
+                최민정 <a href='https://github.com/kjh27ss' className={styles.now}>click!</a>
               </p>    
             </div>
                   

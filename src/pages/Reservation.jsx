@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 import TopNav from '../layout/TopNav';
-import Footer from '../layout/Footer';
+
 import '../assets/css/reservation.css';
 
 const Reservation = () => {
@@ -45,7 +45,7 @@ const Reservation = () => {
                 </div>
                 <div className="col-3"></div>
             </div>
-            <Footer/>
+            {/* <Footer/> */}
     </div>
     </form>
     </>

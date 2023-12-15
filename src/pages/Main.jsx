@@ -7,6 +7,9 @@ import Footer from '../layout/Footer'
 import Info from '../components/Info'
 
 
+import Popup from '../components/Popup'
+
+
 
 const Main = () => {
   const {isLogged} = useAuthValue();
@@ -18,7 +21,7 @@ const Main = () => {
           <LoggedTop/>
           <Search/>
           <Popup/>
-          <ApiList/>
+          {/* <ApiList/> */}
           <Info />
           <Footer/>
         </>
@@ -27,7 +30,7 @@ const Main = () => {
             <TopNav/>
             <Search/>
             <Popup/>
-            <ApiList/>
+            {/* <ApiList/> */}
             <Info />
             <Footer/>
           </>

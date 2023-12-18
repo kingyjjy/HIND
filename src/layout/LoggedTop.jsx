@@ -27,7 +27,8 @@ const LoggedTop = () => {
     }
     const handleClose = ()=>setShow(false);
     const handelShow = ()=>setShow(true);
-    console.log(userinfo);
+    // console.log(userinfo);
+
     
   return (
     <>  
@@ -126,20 +127,22 @@ const LoggedTop = () => {
             <Offcanvas.Header closeButton>
                 
             </Offcanvas.Header>
-            <Offcanvas.Body>
-                <div className="infobox border-bottom  bg-white ms-2 pb-3">
-                    <div className="usericonbox rounded-circle border mt-4 mx-auto text-center" style={{backgroundImage:`url(${usericon})`,overflow:'hidden'}}>
+
+                <Offcanvas.Body>
+                    <div className="infobox border-bottom  bg-white ms-2 pb-3">
+                        <div className="usericonbox rounded-circle border mt-4 mx-auto text-center" style={{backgroundImage:`url(${usericon})`,overflow:'hidden'}}>
+                        </div>
+                        <div className="info-textbox my-3 pe-2 text-start mx-auto" id='myinfo-media'>
+                            <h5 className='fw-bold text-center'>{userinfo?.displayName} 님</h5>
+                            <h6 className='text-center'>{userinfo?.email}</h6>
+                        </div> 
                     </div>
-                    <div className="info-textbox my-3 pe-2 text-start mx-auto" id='myinfo-media'>
-                        <h5 className='fw-bold text-center'>name</h5>
-                        <h6 className='text-center'>{userinfo.eamil}</h6>
-                    </div> 
-                </div>
-                <Link to="/info" className="list-group-item list-group-item-action list-group-item-light p-3"><GrUserSettings className='me-2'/> 내 정보</Link>
-                <Link to="/bookmark" className="list-group-item list-group-item-action list-group-item-light p-3"><GiHearts className='me-2'/> 즐겨찾기</Link>
-                <Link to="/reserv-list" className="list-group-item list-group-item-action list-group-item-light p-3"><GrBook className='me-2'/> 예약내역</Link>
-                <p className='pt-2 text-center mt-3' ><Link to="#" onClick={logout} className='link-dark'>로그아웃</Link></p>
-            </Offcanvas.Body>
+                    <Link to="/info" className="list-group-item list-group-item-action list-group-item-light p-3"><GrUserSettings className='me-2'/> 내 정보</Link>
+                    <Link to="/bookmark" className="list-group-item list-group-item-action list-group-item-light p-3"><GiHearts className='me-2'/> 즐겨찾기</Link>
+                    <Link to="/reserv-list" className="list-group-item list-group-item-action list-group-item-light p-3"><GrBook className='me-2'/> 예약내역</Link>
+                    <p className='pt-2 text-center mt-3' ><Link to="#" onClick={logout} className='link-dark'>로그아웃</Link></p>
+                </Offcanvas.Body>
+
         </Offcanvas>
         
         {/* /sidebar */}

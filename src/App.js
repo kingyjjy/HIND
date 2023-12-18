@@ -27,7 +27,7 @@ import ObjList from './components/ObjList';
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);
-  const [userinfo, setUserinfo] = useState(null);
+  const [userinfo, setUserinfo] = useState(null); 
 
   const user = auth.currentUser;
   
@@ -47,14 +47,14 @@ const App = () => {
   return (
     <Router>
       <AuthProvider value={{userinfo, isLogged}}>
-        <TopButton/>
+
         <Routes>
           {/* {isLogged?(<Route path='/' element={<><LoggedTop/><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           {/* {isLogged?(<Route path='/' element={<><PrivateRoute><LoggedTop/></PrivateRoute><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           <Route path='/' element={<ImageMap/>}></Route>
           <Route path='/main' element={<Main/>}></Route>
           <Route path='/login' element={<Login/>}/>
-          <Route path='/register' element={<Register/>}/>
+          <Route path='/register' element={<Register userinfo={userinfo} isLogged={isLogged}/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
           <Route path='/healthinfo' element={<HealthInfo/>}/>
           <Route path='/detail' element={<InfoDetail/>}/>
@@ -64,7 +64,7 @@ const App = () => {
           {/* {isLogged ?(<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)} */}
           {/* <Route path='/info' element={<UserInfo/>}/> */}
           {isLogged ? (<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)}
-          {isLogged ? (<Route path='/userinfo-edit' element={<UserinfoEdit/>}/>):(<Route path='/userinfo-edit' element={<NotLogin/>}/>)}
+          {isLogged ? (<Route path='/userinfo-edit' element={<UserinfoEdit userinfo={userinfo} isLogged={isLogged}/>}/>):(<Route path='/userinfo-edit' element={<NotLogin/>}/>)}
           {/* <Route path='/userinfo-edit' element={
             <PrivateRoute>
               <UserinfoEdit/>

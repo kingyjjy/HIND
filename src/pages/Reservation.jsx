@@ -7,6 +7,7 @@ import '../assets/css/reservation.css';
 const Reservation = () => {
     const location = useLocation();
     console.log(location)
+
   return (
     <>
     <TopNav/>
@@ -17,6 +18,9 @@ const Reservation = () => {
                 <div className="col-6 res">
                     <div className="res-box">
                     <h2 className='text-center res-title'>진료 예약</h2>
+                        <div className="">
+                            <input type="checkbox" value='check' />회원정보 가져오기
+                        </div>
                         <div className="res-hos-name">
                             <input type="text" placeholder={location.state.title}  readOnly/>
                         </div>

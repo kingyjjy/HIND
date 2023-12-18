@@ -1,10 +1,9 @@
-import React,{useState, useEffect} from 'react'
+import React,{useState} from 'react'
 import {FcGoogle} from 'react-icons/fc'
 import {SiKakaotalk, SiFacebook} from 'react-icons/si'
 import { Link, useNavigate } from 'react-router-dom'
-import { auth, db } from '../config/firebase'
+import { auth } from '../config/firebase'
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth'
-import { addDoc, collection, serverTimestamp } from 'firebase/firestore'
 
 
 const Login = () => {
@@ -40,19 +39,6 @@ const Login = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
     .then(()=> navigate('/'))
-    //   async(res)=>{
-    //   const credential = GoogleAuthProvider.credentialFromResult(res);
-    //   const token = credential?.accessToken;
-    //   const user = res.user;
-
-    //   await addDoc(collection(db, 'users'),{
-    //     uid:user.uid,
-    //     name:user.name,
-    //     email:email,
-    //     timeStamp:serverTimestamp()
-    //   });
-    //   navigate('/');
-    // })
     .catch((err)=>alert(err.message))
   }
   // facebooksign
@@ -80,8 +66,8 @@ const Login = () => {
                   
                   <h2 className="fw-bold mb-5 text-center">로그인</h2>
                   <div className="mx-5 mb-3">
-                    <label htmlFor="id">아이디</label>
-                    <input type="text" name="userId" className="form-control" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='아이디'/>
+                    <label htmlFor="id">이메일</label>
+                    <input type="text" name="userId" className="form-control" value={email} onChange={(e)=>setEmail(e.target.value)} placeholder='이메일'/>
                   </div>
                   <div className="mx-5">
                     <label htmlFor="pass">비밀번호</label>
@@ -89,7 +75,7 @@ const Login = () => {
                   </div>
                   <div className="form-check mx-5 mt-3">
                     <input type="checkbox" id="idcheck" className="form-check-input" />
-                    <label htmlFor="idcheck">아이디 기억하기</label>
+                    <label htmlFor="idcheck">이메일 기억하기</label>
                   </div>
                   <Link to="/register" className="text-end mx-5">회원가입</Link>
                   <div className='d-flex justify-content-center mt-3'>

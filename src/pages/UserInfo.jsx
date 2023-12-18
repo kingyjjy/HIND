@@ -63,7 +63,7 @@ const UserInfo = () => {
                             </div>
                             <div  className="text-start mb-4">
                                 <label className='col-2'>이름 : </label>
-                                <input type="text" name="username" readOnly className='w-50' value={user.displayName} />
+                                <input type="text" name="username" readOnly className='w-50' value={userinfo?.displayName} />
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>이메일 : </label>
@@ -81,7 +81,7 @@ const UserInfo = () => {
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>전화번호 : </label>
-                                <input type="text" name="username" readOnly value={user.tel}/>
+                                <input type="text" name='tel' value={user.tel}/>
                             </div>
                             <div className='text-center mt-5'>
                                 <Link to="/userinfo-edit" className='btn btn-lg btn-secondary text-white'>정 보 수 정</Link>

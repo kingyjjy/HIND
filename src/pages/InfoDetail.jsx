@@ -92,7 +92,7 @@ const InfoDetail = () => {
                 </div>
             </div>
             <div className="map mt-5 mb-5">
-                <MapContainer/>
+                {/* <MapContainer/> */}
             </div>
         </div>
         <Footer/>

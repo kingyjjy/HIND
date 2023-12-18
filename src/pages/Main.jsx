@@ -6,7 +6,7 @@ import Search from '../layout/Search'
 import Footer from '../layout/Footer'
 import Info from '../components/Info'
 
-
+import ApiList from '../components/ApiList'
 import Popup from '../components/Popup'
 
 
@@ -21,7 +21,7 @@ const Main = () => {
           <LoggedTop/>
           <Search/>
           <Popup/>
-          {/* <ApiList/> */}
+          <ApiList/>
           <Info />
           <Footer/>
         </>
@@ -30,7 +30,7 @@ const Main = () => {
             <TopNav/>
             <Search/>
             <Popup/>
-            {/* <ApiList/> */}
+            <ApiList/>
             <Info />
             <Footer/>
           </>

@@ -16,7 +16,7 @@ import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
 import LoggedTop from './layout/LoggedTop';
 import UserinfoEdit from './pages/UserinfoEdit';
-
+import SearchList from './pages/SearchList';
 
 
 const App = () => {
@@ -45,11 +45,12 @@ const App = () => {
         <Routes>
           {/* {isLogged?(<Route path='/' element={<><LoggedTop/><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           {/* {isLogged?(<Route path='/' element={<><PrivateRoute><LoggedTop/></PrivateRoute><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
-          <Route path='/' element={<ImageMap/>}></Route>
+          {/* <Route path='/' element={<ImageMap/>}></Route> */}
           <Route path='/main' element={<Main/>}></Route>
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
+          <Route path='/searchlist' element={<SearchList/>}/>
           {/* <Route path='/healthinfo' element={<HealthInfo/>}/> */}
           {/* <Route path='/detail' element={<InfoDetail/>}/> */}
           {/* <Route path='/reservation' element={<Reservation/>}/> */}

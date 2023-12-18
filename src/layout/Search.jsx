@@ -1,9 +1,16 @@
-import React from 'react'
+import React from 'react' 
+import { useNavigate } from 'react-router-dom'
 import {BsSearch} from 'react-icons/bs'
 import '../assets/css/main.css'
 import searchbar from '../assets/images/searchbar2.jpg'
 
 const Search = () => {
+
+  const navigate = useNavigate();
+
+  const handleSearch = () => {
+    navigate("/searchlist");
+  }
   return (
     <div className='searchbar pb-5' style={{height:'500px', background:`linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${searchbar}) no-repeat center`, backgroundSize:'cover'}}>
         <div className="textbox text-center pt-5">
@@ -12,7 +19,7 @@ const Search = () => {
         </div>
         <div className="inputbox position-relative mt-5">
             <input type="search" placeholder='병원검색...' className='searchinput form-control'/>
-            <button type="submit" className=" btn"><BsSearch className='sicon position-absolute'/></button>
+            <button type="submit" className=" btn" onClick={handleSearch}><BsSearch className='sicon position-absolute'/></button>
         </div>
     </div>
   )

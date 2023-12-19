@@ -1,12 +1,13 @@
 import React from 'react'
 import LoggedTop from '../layout/LoggedTop';
 import Footer from '../layout/Footer';
+import '../assets/css/reservlist.css';
 
 const ReservList = () => {
   return (
     <>
     <LoggedTop/>
-    <div className="container">
+    <div className="container mb-5">
         <div className="reserv-list">
             <h1 className="reserv-title">예약 내역</h1>
             {/*loop*/}
@@ -43,7 +44,6 @@ const ReservList = () => {
                     </div>
                     </div>
                     <div className="col-2 relative">
-
                         <div className="list-del mt-4 absolute">
                             <button type='button'>예약 취소</button>
                         </div>
@@ -64,7 +64,6 @@ const ReservList = () => {
                     </div>
                     </div>
                     <div className="col-2 relative">
-
                         <div className="list-del mt-4 absolute">
                             <button type='button'>예약 취소</button>
                         </div>

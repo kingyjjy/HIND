@@ -1,0 +1,49 @@
+.reserv-list>.reserv-title{
+    font-weight: 600;
+    font-size: 33px;
+  }
+  
+  .reserv-list{
+    margin-top: 80px;
+  }
+  
+  .reserv-list>.list-box{
+    border: 1px solid #dfdbdb;
+    border-radius: 30px;
+    padding: 30px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: all 0.2s;
+  
+  }
+  
+  .reserv-list>.list-box:hover{
+    transform: scale(1.1);
+    background-color:#ececec;
+  }
+  
+  .reserv-list>.list-title h4{
+    font-weight: 800;
+  }
+  
+  .reserv-list>.date{
+    color: #537FE7;
+    font-weight: 700;
+  }
+  
+  .reserv-list>.del-btn{
+    top: 20px;
+  }
+  
+  .list-del>button{
+    padding: 15px 40px;
+    border: 10px;
+    border-radius: 10px;
+    background-color: #3E54AC;
+    color: #fff;
+  }
+  
+  .list-del>button:hover{
+    background-color: #BFACE2;
+  }
+  

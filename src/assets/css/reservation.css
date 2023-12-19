@@ -32,7 +32,7 @@
     padding-bottom: 30px;
   }
   
-  .res>.res-box input{
+  .res>.res-box input, .res-slide{
     border-radius: 5px;
     padding: 15px;
     width: 100%;
@@ -58,3 +58,60 @@
   .res-box>.res-success button:hover{
     background-color: #BFACE2;
   }
+
+  input[type='date']::before {
+    content: attr(data-placeholder);
+    width: 100%;
+  }
+  
+  /* input[type='date']:focus::before, */
+  input[type='date']:valid::before {
+    display: none;
+  }
+
+
+  .res-slide{
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* accordion */
+
+.res-time{
+  background-color: #f1f0f0;
+  padding: 20px;
+  border-radius: 5px;
+}
+.cho-time{
+  border: 1px solid #c5c4c4;
+  background-color: #fff;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.cho-time span{
+  display: flex;
+  justify-content:space-between;
+}
+
+.res-time .times{
+  display: flex;
+  justify-content: center;
+}
+
+.res-time .times button{
+  border: none;
+  background-color: #fff;
+  text-align: center;
+  margin: 0px 8px;
+  margin-bottom: 15px;
+  padding: 8px;
+}
+
+.res-time .times .btn{
+  &.active {
+    background-color: lightblue !important;
+    color: #fff;
+  }
+}

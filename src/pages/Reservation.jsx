@@ -115,12 +115,12 @@ const Reservation = () => {
                         <div className="res-box" >
                             <h2 className='text-center res-title'>진료 예약</h2>
                             <div className="">
-                                <input type="checkbox" value='check' onClick={checkhandler}/>회원정보 가져오기
+                                <input type="checkbox" value='check' onClick={checkhandler} style={{width:'30px'}}/>회원정보 가져오기
                             </div>
                             {isChecked ? (
                                 <div>
                                 <div className="res-hos-name">
-                                    <input type="text" placeholder={location.state.title} value={mediName} readOnly/>
+                                    <input type="text" placeholder={location.state.title} value={mediName} readOnly />
                                 </div>
                                 <div className="res-name">
                                     <input type="text" name='res-name' placeholder='예약자명' readOnly value={u.name} onChange={(e)=>setName(e.target.value)}/>

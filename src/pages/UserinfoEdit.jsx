@@ -13,7 +13,7 @@ import { getDownloadURL, uploadBytes, ref } from 'firebase/storage';
 import { updateProfile } from 'firebase/auth';
 
 
-const UserInfo = () => {
+const UserinfoEdit = () => {
     const {userinfo} = useAuthValue();
     const [users, setUsers] = useState([]);
     const [newZonecode, setNewZonecode] = useState();
@@ -25,6 +25,9 @@ const UserInfo = () => {
     const [userIcon, setUserIcon] = useState();
     const [fileName, setFileName] = useState();
     const navigation = useNavigate();
+
+    const user = auth.currentUser;
+    const uid = user.uid;
 
     const CURRENT_URL = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
     const open = useDaumPostcodePopup(CURRENT_URL);
@@ -80,24 +83,32 @@ const UserInfo = () => {
 
     useEffect(()=>{
         fetchUser();
+        setNewZonecode(users.zonecode);
+        setNewaddress(users.address);
+        setNewDetailAdd(users.detailaddress);
     },[]);
+
     const fetchUser = async()=>{
         try{
-            const user = auth.currentUser;
-            const uid = user.uid;
-            const email = user.email;
+            // const email = user.email;
             const q = query(
-                  collection(db, 'users'), where('email', '==', email)
+                  collection(db, "users"), where('uid', '==', uid)
                 );
-                const querySnapshot = await getDocs(q);
-                setUsers(querySnapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
+            const querySnapshot = await getDocs(q);
+            setUsers(querySnapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
+            const get = await getDocs(collection(db, "users"))
+            console.log(get);
         }catch(err){
             console.error(err);
         }
     }
 
-    const user = auth.currentUser;
-    const uid = user.uid;
+    const updateUser = async(id)=>{
+        const userDoc = doc(db, 'users', id);
+        const newFie = {birth, tel};
+        await updateDoc(userDoc, newFie);
+    }
+    
     
     const handleClick =async(e)=>{
         e.preventDefault();
@@ -113,28 +124,30 @@ const UserInfo = () => {
             }
         }
         try{
-            // await updateProfile(user,{photoURL})
-            // .then(await updateDoc(collection(db, 'users',id),{
+            // if(photoURL !== null){
+            //     await updateProfile(user, {photoURL:photoURL})
+            //     .then(await updateDoc(doc(db, "users", uid),{
+            //         zonecode:newZonecode,
+            //         address:newaddress,
+            //         detailaddress:newdetailAdd,
+            //         birth:birth,
+            //         tel:tel
+            //     }))
+            
+            // alert('회원정보 수정 완료');
+            // navigation('/info');
+            // }
+            // await updateDoc(doc(db, 'users', id),{
             //     zonecode:newZonecode,
             //     address:newaddress,
-            //     detailaddress:newdetailAdd
-            // }))
-            // .then(await addDoc(collection(db,'users'),{
-            //     birth:birth,
-            //     tel:tel
-            // }))
-            if(photoURL !== null){
-                await updateProfile(user, {photoURL:photoURL})
-                .then(await updateDoc(doc(collection(db,'users',uid)),{
-                    zonecode:newZonecode,
-                    address:newaddress,
-                    detailaddress:newdetailAdd,
-                    birth:birth,
-                    tel:tel
-                }))
-            }
+            //     detailaddress:newdetailAdd,
+            //     birth,
+            //     tel
+            // })
+            
             alert('회원정보 수정 완료');
             navigation('/info');
+            
         }catch(err){
             console.error('error update profile ', err);
         }
@@ -144,10 +157,10 @@ const UserInfo = () => {
     const showUser = users.map((user,index)=>(
         
         
-        <div className='container'>
+        <div className='container' key={index}>
             <div  className="border-top">
 
-                    <div key={index} className="userinfo mx-5">     
+                    <div  className="userinfo mx-5">     
                         <div className="m-5 p-5 mx-auto border shadow-lg rounded">
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보 수정</h2>
                             <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
@@ -165,7 +178,7 @@ const UserInfo = () => {
                             </div>
                             <div  className="text-start mb-4">
                                 <label className='col-2'>이름 : </label>
-                                <input type="text" name="username" className='w-50' readOnly value={user.displayName}/>
+                                <input type="text" name="username" className='w-50' readOnly value={userinfo?.displayName}/>
                                 <div className="text-danger" style={{marginLeft:'11.5rem'}}>*이름 수정 불가*</div>
                             </div>
                             <div className="text-start mb-4">
@@ -175,10 +188,10 @@ const UserInfo = () => {
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>주소 : </label>
-                                <input type="text" name="username" className='w-25 mb-2' value={newZonecode} onChange={(e)=>setNewZonecode(e.target.value)}/>
+                                <input type="text" name="username" className='w-25 mb-2' value={newZonecode} onChange={(e)=>setNewZonecode(e.target.value)} placeholder='우편번호'/>
                                 <button type="button" className="ms-1 mb-2 btn btn-secondary" onClick={onClickHandler}>주소찾기</button>
-                                <input type="text" name="username" value={newaddress} onChange={(e)=>setNewaddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}}/>
-                                <input type="text" name="username" value={newdetailAdd} onChange={(e)=>setNewDetailAdd(e.target.value)} style={{marginLeft:'11.5rem'}}/>
+                                <input type="text" name="username" value={newaddress} onChange={(e)=>setNewaddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
+                                <input type="text" name="username" value={newdetailAdd} onChange={(e)=>setNewDetailAdd(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>생년월일 : </label>
@@ -186,11 +199,11 @@ const UserInfo = () => {
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>전화번호 : </label>
-                                <input type="text" name="username" value={tel} onChange={(e)=>setTel(e.target.value)}/>
+                                <input type="text" name='tel' placeholder="휴대폰 번호 입력 ('-'제외 11자리 입력)" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                             </div>
                             <div className='text-center mt-5'>
                                 <Link to='/userinfo' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
-                                <button className='btn btn-lg btn-secondary text-white' onClick={handleClick}>정 보 수 정</button>
+                                <button className='btn btn-lg btn-secondary text-white' onClick={()=>{updateUser(user.id); alert('회원정보 수정완료'); navigation('/info')}}>정 보 수 정</button>
                             </div>
                         </div>
                     </div>
@@ -209,4 +222,4 @@ const UserInfo = () => {
   )
 }
 
-export default UserInfo
+export default UserinfoEdit

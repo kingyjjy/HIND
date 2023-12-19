@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import {useDaumPostcodePopup} from 'react-daum-postcode';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../config/firebase';
-import { collection, addDoc ,serverTimestamp } from 'firebase/firestore';
-import { createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import { collection, addDoc ,serverTimestamp, getDoc, query } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, updateProfile} from 'firebase/auth';
 
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
@@ -14,6 +14,7 @@ const Register = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [chkEmail, setChkEmail] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
   const [cperr, setCperr] =useState('');
@@ -25,14 +26,20 @@ const Register = () => {
   const navigate = useNavigate();
 
   const user = auth.currentUser;
-  
-  const emailReg =(e)=>{
+  // const loggedUser = props.userinfo;
+  // const checkEmail = async(email)=>{
+  //   const check = await fetchSignInMethodsForEmail(auth, email);
+  //   return check.length > 0 ? '이미 가입된 이메일 입니다.' : undefined;
+  // };
+
+  const emailReg = async(e)=>{
     setEmail(e.target.value);
     const reg = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     if(!reg.test(e.target.value)){
       setRegEmail('이메일 형식: ex) example@exam.com');
     }else{
       setRegEmail('');
+
     }
   }
   const passReg = (e)=>{
@@ -84,6 +91,7 @@ const handleSubmit = async(e)=>{
       email,
       pass
     }
+
     let hasEmpty = false;
     for(let i in require){
       if(!require[i]){
@@ -95,18 +103,18 @@ const handleSubmit = async(e)=>{
     }else{
       try{
         await createUserWithEmailAndPassword(auth, email, pass)
-          .then( await addDoc(collection(db, 'users'),{
-              timestamp:serverTimestamp(),
-              email:email,
-              displayName:name,
-              pass:pass,
-              zonecode:zonecode,
-              address:address,
-              detailaddress:detailaddress,
-              uid:user.uid
+          .then( await updateProfile(user,{displayName:name}))
+          .then( await addDoc(collection(db, 'users'), {
+            timestamp:serverTimestamp(),
+            email:email,
+            name:name,
+            zonecode:zonecode,
+            address:address,
+            detailaddress:detailaddress,
+            uid:auth.currentUser.uid
           }))
           
-        alert('회원가입 성공');
+        alert('회원가입이 완료되었습니다.');
         navigate('/login');
       }catch(err){
         console.error('register error',err);
@@ -136,10 +144,9 @@ const handleSubmit = async(e)=>{
                   <label htmlFor="email" className='mb-2'>이메일 <span className="text-danger">*</span></label>
                   <div className="input-group w-50">
                     <input type="text" name="email" className="form-control" value={email} onChange={emailReg} placeholder='이메일'/>
-                    
                   </div>
                   {
-                      regEmail !== '' ? (<div className='text-danger'>{regEmail}</div>):null  
+                      regEmail !== '' ? (<div className='text-danger'>{regEmail}</div>):null
                     }                 
                 </div>
                 <div className='my-4'>

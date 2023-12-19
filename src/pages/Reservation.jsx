@@ -1,6 +1,3 @@
-import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
-import '../assets/css/reservation.css';
-import Accordion from '../components/Accordion';
 
 const Reservation = () => {
     const location = useLocation();

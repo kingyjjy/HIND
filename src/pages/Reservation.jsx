@@ -7,7 +7,7 @@ import Footer from '../layout/Footer';
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
 import '../assets/css/reservation.css';
-import Calendar from '../components/Calendar';
+// import Calendar from '../components/Calendar';
 import Accordion from '../components/Accordion';
 import { QuerySnapshot, addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../config/firebase';
@@ -27,7 +27,7 @@ const Reservation = () => {
     const nav = useNavigate();
     const user = auth.currentUser;
     const uid = user.uid;
-    console.log(users[0].name)
+    // console.log(users[0].name)
     useEffect(()=>{
         getUser();
     },[]);

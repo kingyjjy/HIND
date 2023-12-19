@@ -40,7 +40,7 @@ const Reservation = () => {
 
                         <div className="cho-time">
                             <span>시간 선택
-                        <a onClick={()=>{
+                        <a onClick={()=>{ 
                             setVisible(!visible);
                         }}
                         >

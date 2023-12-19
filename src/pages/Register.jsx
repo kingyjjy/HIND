@@ -108,9 +108,9 @@ const handleSubmit = async(e)=>{
             timestamp:serverTimestamp(),
             email:email,
             name:name,
-            zonecode:zonecode,
-            address:address,
-            detailaddress:detailaddress,
+            // zonecode:zonecode,
+            // address:address,
+            // detailaddress:detailaddress,
             uid:auth.currentUser.uid
           }))
           
@@ -163,7 +163,7 @@ const handleSubmit = async(e)=>{
                     cperr !== '' ? (<div className='text-danger'>{cperr}</div>):null  
                   }
                 </div>
-                <div className="my-4">
+                {/* <div className="my-4">
                   <label htmlFor="address" className="mb-2">주소</label>
                   <div className="mb-2 input-group w-50">
                     <input type="text" className="form-control" name='zoneCode'  placeholder='우편번호' value={zonecode} onChange={(e)=>setZonecode(e.target.value)}/>
@@ -171,7 +171,7 @@ const handleSubmit = async(e)=>{
                   </div>
                   <input type="text" id='address' name='address' className="mb-1 form-control" placeholder='주소' value={address} onChange={(e)=>setAddress(e.target.value)}/>
                   <input type="text" id='detailaddress' name='detailAddress' className="form-control"  placeholder='세부주소' value={detailaddress} onChange={(e)=>setDetailaddress(e.target.value)}/>
-                </div>
+                </div> */}
                 <div className="d-flex justify-content-center">
                   <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-secondary mt-5 mb-4">회원가입</button>
                 </div>

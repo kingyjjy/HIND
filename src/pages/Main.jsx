@@ -5,7 +5,7 @@ import LoggedTop from '../layout/LoggedTop'
 import Search from '../layout/Search'
 import Footer from '../layout/Footer'
 import Info from '../components/Info'
-
+import Cservice from '../layout/Cservice';
 import ApiList from '../components/ApiList'
 import Popup from '../components/Popup'
 
@@ -23,6 +23,7 @@ const Main = () => {
           <Popup/>
           <ApiList/>
           <Info />
+          <Cservice />
           <Footer/>
         </>
         ):(
@@ -32,6 +33,7 @@ const Main = () => {
             <Popup/>
             <ApiList/>
             <Info />
+            <Cservice />
             <Footer/>
           </>
         )

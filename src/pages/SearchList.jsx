@@ -13,7 +13,11 @@ const SearchList = () => {
             <input type="search" placeholder='검색어를 입력하세요.' className='searchbox form-control'/>
             <button type="submit" className=" btn"><BsSearch className='sicon position-absolute'/></button>
             </div>
+            <div className="search-result mt-5 mb-5">
+
+            </div>
         </div>
+        <Footer/>
     </>
   )
 }

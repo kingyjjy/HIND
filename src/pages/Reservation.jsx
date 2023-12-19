@@ -1,10 +1,8 @@
 import React, {useState} from 'react'
 import { useLocation } from 'react-router-dom'
 import TopNav from '../layout/TopNav';
-import { IoMdArrowDropdownCircle } from "react-icons/io";
 import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
 import '../assets/css/reservation.css';
-import Calendar from '../components/Calendar';
 import Accordion from '../components/Accordion';
 
 const Reservation = () => {

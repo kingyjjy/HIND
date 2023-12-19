@@ -117,11 +117,9 @@ const Popup = () => {
             </div>
             <div className={styles.profile}>
               <p className={styles.yjjy}>
-                {/* <GoPin size={27} className={styles.pin}/> */}
                 김연지<a href='https://github.com/kingyjjy' className={styles.now}>click!</a>
               </p>
               <p className={styles.joung}>
-                {/* <GoPin size={27} className={styles.pin}/> */}
                 최민정 <a href='https://github.com/kjh27ss' className={styles.now}>click!</a>
               </p>    
             </div>
@@ -136,7 +134,7 @@ const Popup = () => {
           <div className={styles.testline}>
             <div className={styles.test}>
               <RiCloseLine className={styles.closeBtn} onClick={handleClosetest} />
-              테스트용
+              TEST
               <p>아래 정보로 로그인 후 사이트를 이용해보세요!</p>
             </div>
             <div className={styles.sample}>

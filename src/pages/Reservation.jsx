@@ -22,7 +22,7 @@ const Reservation = () => {
                             <input type="checkbox" value='check' />회원정보 가져오기
                         </div>
                         <div className="res-hos-name">
-                            <input type="text" placeholder={location.state.title}  readOnly/>
+                            {/* <input type="text" placeholder={location.state.title}  readOnly/> */}
                         </div>
                         <div className="res-name">
                             <input type="text" name='res-name' placeholder='예약자명' />

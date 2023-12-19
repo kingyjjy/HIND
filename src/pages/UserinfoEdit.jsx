@@ -188,10 +188,10 @@ const UserinfoEdit = () => {
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>주소 : </label>
-                                <input type="text" name="username" className='w-25 mb-2' value={newZonecode} onChange={(e)=>setNewZonecode(e.target.value)} placeholder='우편번호'/>
+                                <input type="text" name="username" className='w-25 mb-2' value={user.zonecode} onChange={(e)=>setNewZonecode(e.target.value)} placeholder='우편번호'/>
                                 <button type="button" className="ms-1 mb-2 btn btn-secondary" onClick={onClickHandler}>주소찾기</button>
-                                <input type="text" name="username" value={newaddress} onChange={(e)=>setNewaddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
-                                <input type="text" name="username" value={newdetailAdd} onChange={(e)=>setNewDetailAdd(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
+                                <input type="text" name="username" value={user.address} onChange={(e)=>setNewaddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
+                                <input type="text" name="username" value={user.detailaddress} onChange={(e)=>setNewDetailAdd(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>생년월일 : </label>
@@ -202,7 +202,7 @@ const UserinfoEdit = () => {
                                 <input type="text" name='tel' placeholder="휴대폰 번호 입력 ('-'제외 11자리 입력)" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                             </div>
                             <div className='text-center mt-5'>
-                                <Link to='/userinfo' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
+                                <Link to='/info' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
                                 <button className='btn btn-lg btn-secondary text-white' onClick={()=>{updateUser(user.id); alert('회원정보 수정완료'); navigation('/info')}}>정 보 수 정</button>
                             </div>
                         </div>

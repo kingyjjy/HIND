@@ -8,7 +8,6 @@ import Footer from '../layout/Footer';
 
 
 const HealthInfo = () => {
-  const [isMoreView, setIsMoreView] = useState(false);
 
   return (
     <>
@@ -33,9 +32,6 @@ const HealthInfo = () => {
                   <a href="#" className='in'><MdOutlineKeyboardArrowRight size={18} /></a>
                   <a href="#" className='last'><MdKeyboardDoubleArrowRight size={18} /></a>
                 </div>
-                {/* <div className="pplus mb-5">
-                  <a href="#">더보기 ( 1 / 2 )</a>
-                </div> */}
                 
     </div>
     <Footer/>

@@ -1,3 +1,5 @@
+
+
 import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import LoggedTop from '../layout/LoggedTop';
@@ -5,10 +7,11 @@ import Footer from '../layout/Footer';
 import { IoMdArrowDropdownCircle } from "react-icons/io";
 import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
 import '../assets/css/reservation.css';
-import Calendar from '../components/Calendar';
+// import Calendar from '../components/Calendar';
 import Accordion from '../components/Accordion';
 import { QuerySnapshot, addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../config/firebase';
+
 
 const Reservation = () => {
     const location = useLocation();

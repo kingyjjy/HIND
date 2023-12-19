@@ -16,13 +16,11 @@ import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
 import LoggedTop from './layout/LoggedTop';
 import UserinfoEdit from './pages/UserinfoEdit';
-import ImageMap from './pages/ImageMap';
-import HealthInfo from './pages/HealthInfo';
-import InfoDetail from './pages/InfoDetail';
-import Reservation from './pages/Reservation';
-import ReservList from './pages/ReservList';
-import ObjList from './components/ObjList';
+import SearchList from './pages/SearchList';
 
+import ImageMap from './pages/ImageMap';
+import InfoDetail from './pages/InfoDetail'
+import Reservation from './pages/Reservation'
 
 
 const App = () => {
@@ -47,7 +45,7 @@ const App = () => {
   return (
     <Router>
       <AuthProvider value={{userinfo, isLogged}}>
-
+>>>>>> main
         <Routes>
           {/* {isLogged?(<Route path='/' element={<><LoggedTop/><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
           {/* {isLogged?(<Route path='/' element={<><PrivateRoute><LoggedTop/></PrivateRoute><Main/><Footer/></>}></Route>):(<Route path='/' element={<><TopNav/><Main/><Footer/></>}></Route>)} */}
@@ -56,11 +54,12 @@ const App = () => {
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register userinfo={userinfo} isLogged={isLogged}/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
-          <Route path='/healthinfo' element={<HealthInfo/>}/>
+          <Route path='/searchlist' element={<SearchList/>}/>
+          {/* <Route path='/healthinfo' element={<HealthInfo/>}/> */}
           <Route path='/detail' element={<InfoDetail/>}/>
           <Route path='/reservation' element={<Reservation/>}/>
-          <Route path='/reserv-list' element={<ReservList/>}/>
-          <Route path='/objlist' element={<ObjList/>}/>
+          {/* <Route path='/reserv-list' element={<ReservList/>}/> */}
+          {/* <Route path='/objlist' element={<ObjList/>}/> */}
           {/* {isLogged ?(<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)} */}
           {/* <Route path='/info' element={<UserInfo/>}/> */}
           {isLogged ? (<Route path='/info' element={<UserInfo/>}/>):(<Route path='/info' element={<NotLogin/>}/>)}

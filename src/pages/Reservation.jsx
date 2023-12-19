@@ -1,12 +1,14 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { useLocation } from 'react-router-dom'
 import TopNav from '../layout/TopNav';
-import Footer from '../layout/Footer';
+import { IoMdArrowDropdownCircle } from "react-icons/io";
+import { IoIosArrowDropdown,IoIosArrowDropup } from "react-icons/io";
 import '../assets/css/reservation.css';
+import Calendar from '../components/Calendar';
+import Accordion from '../components/Accordion';
 
 const Reservation = () => {
     const location = useLocation();
-    console.log(location)
 
   return (
     <>
@@ -27,21 +29,26 @@ const Reservation = () => {
                         <div className="res-name">
                             <input type="text" name='res-name' placeholder='예약자명' />
                         </div>
-                        <div className="birth">
-                            <div className="info" id='info-birth'>
-                                <div className='box d-flex' id='birth-year'>
-                                    <input type='text' placeholder='YYYY' maxlength='4' style={{width:"80%", marginRight:"5px"}}/>
-                                    <input type='text' placeholder='MM' maxlength='2' style={{width:"80%", marginRight:"5px"}}/>
-                                    <input type='text' placeholder='DD' maxlength='2' style={{width:"80%", marginRight:"5px"}}/>
-                                </div>
-                            </div>
-                        </div>
                         <div className="tel">
                             <input type="text" name='res-tel' placeholder="휴대폰 번호 입력 ('-'제외 11자리 입력)" />
                         </div>
-                        <div className="res-date">
-                            <input type="date" name='res-date' />
+                        <div className="res-birth">
+                            <input type="date" data-placeholder="출생년도-월-일" required aria-required="true" />
                         </div>
+                        <div className="res-accordion">
+                            <input type="date" data-placeholder="진료일 선택" required aria-required="true"/>
+                        </div>
+
+                        <div className="cho-time">
+                            <span>시간 선택
+                        <a onClick={()=>{ 
+                            setVisible(!visible);
+                        }}
+                        >
+                            {visible ? <IoIosArrowDropup size={20}/> : <IoIosArrowDropdown size={20}/>}
+                        </a>
+                        </span></div>
+                        {visible && <Accordion />}
                         <div className="res-success">
                             <button>예약하기</button>
                         </div>
@@ -49,9 +56,9 @@ const Reservation = () => {
                 </div>
                 <div className="col-3"></div>
             </div>
+            {/* <Footer/> */}
     </div>
     </form>
-    <Footer/>
     </>
   )
 }

@@ -42,28 +42,27 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
   <thead>
       <tr>
           <th align="center">시작 페이지</th>
-          <th align="center">시작 페이지</th>
-          <th align="center">시작 페이지</th>
+          <th align="center">메인 페이지</th>
+          <th align="center">병원 상세 페이지</th>
       </tr>
   </thead>
   <tbody>
       <tr>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/5b206feb-e420-4a3f-8eee-37672ab5571d" style="max-width:100%;"></a></td>
           <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/f35bf9f8-86d4-428d-a134-e38aed591e1d" style="max-width:100%;"></a></td>
       </tr>
       <tr>
-          <th align="center">시작 페이지</th>
-          <th align="center">시작 페이지</th>
-          <th align="center">시작 페이지</th>
+          <td align="center">로그인 / 마이페이지</td>
+          <td align="center">회원가입</td>
+          <td align="center">내 정보</td>
       </tr>
       <tr>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/246d9f31-a2f3-4a5e-9e0c-bdc8dc178d4e" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/0d968934-3ffa-4d04-840e-ea419e5f8ce4" style="max-width:100%;"></a></td>
           <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
       </tr>
   </tbody>
-    
 </table>
 <br /><br />
 
@@ -71,15 +70,17 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
 #### 김연지 (https://github.com/kingyjjy)
 - 회원가입
   - 주소 카카오 api
+  -  아이디 중복 확인
+  - 이메일 중복 확인
 - 로그인
-- 메인
-    - TopNav
-    - banner
-    - footer
+  - 간편 소셜 로그인 ( 구글, 카카오, 페이스북 )
 - 마이페이지
   - offcanvas
   - 내 정보
-  - 즐겨찾기<br/>
+  - 즐겨찾기
+  - 예약내역
+- 내정보
+  - 회원정보수정
 - 예약
     - 예약하기
     - 예약 취소
@@ -89,10 +90,12 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
 - 카테고리
   - 공공데이터 api
 - 건강정보
-  - SplideSlide
+  - react-splide
 - 팝업창
   - 쿠키
 - 병원 상세
   - 카카오맵 api
 - 예약하기, 예약 내역
   - 페이지 구현
+- 진료과, 지역 찾기
+  - api

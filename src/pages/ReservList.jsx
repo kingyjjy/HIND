@@ -1,10 +1,11 @@
 import React from 'react'
-import TopNav from '../layout/TopNav';
+import LoggedTop from '../layout/LoggedTop';
+import Footer from '../layout/Footer';
 
 const ReservList = () => {
   return (
     <>
-    <TopNav/>
+    <LoggedTop/>
     <div className="container">
         <div className="reserv-list">
             <h1 className="reserv-title">예약 내역</h1>
@@ -71,6 +72,7 @@ const ReservList = () => {
             </div>
         </div>
     </div>
+    <Footer />
     </>
   )
 }

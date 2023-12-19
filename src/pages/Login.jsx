@@ -73,10 +73,10 @@ const Login = () => {
                     <label htmlFor="pass">비밀번호</label>
                     <input type="password" name="userPass" className="form-control" value={pass} onChange={(e)=>setPass(e.target.value)} placeholder='비밀번호'/>
                   </div>
-                  <div className="form-check mx-5 mt-3">
+                  {/* <div className="form-check mx-5 mt-3">
                     <input type="checkbox" id="idcheck" className="form-check-input" />
                     <label htmlFor="idcheck">이메일 기억하기</label>
-                  </div>
+                  </div> */}
                   <Link to="/register" className="text-end mx-5">회원가입</Link>
                   <div className='d-flex justify-content-center mt-3'>
                     <button type="submit" className="btn btn-secondary" onClick={onSubmit}>로그인</button>

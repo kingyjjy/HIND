@@ -16,9 +16,9 @@ import { updateProfile } from 'firebase/auth';
 const UserinfoEdit = () => {
     const {userinfo} = useAuthValue();
     const [users, setUsers] = useState([]);
-    const [newZonecode, setNewZonecode] = useState();
-    const [newaddress, setNewaddress] = useState();
-    const [newdetailAdd, setNewDetailAdd] = useState();
+    const [zonecode, setZonecode] = useState();
+    const [address, setAddress] = useState();
+    const [detailAddress, setDetailAddress] = useState();
     const [birth, setBirth] = useState();
     const [tel, setTel] = useState();
     const [userImg, setUserImg] = useState();
@@ -39,8 +39,8 @@ const UserinfoEdit = () => {
         let fullAddress = data.address;
             let extraAddress = '';
         let zoneCodes = data.zonecode;
-        setNewZonecode(data.zonecode)
-        setNewaddress(data.address)
+        setZonecode(data.zonecode)
+        setAddress(data.address)
     
             if (data.addressType === 'R') {
                 if (data.bname !== '') {
@@ -83,9 +83,6 @@ const UserinfoEdit = () => {
 
     useEffect(()=>{
         fetchUser();
-        setNewZonecode(users.zonecode);
-        setNewaddress(users.address);
-        setNewDetailAdd(users.detailaddress);
     },[]);
 
     const fetchUser = async()=>{
@@ -105,7 +102,7 @@ const UserinfoEdit = () => {
 
     const updateUser = async(id)=>{
         const userDoc = doc(db, 'users', id);
-        const newFie = {birth, tel};
+        const newFie = {birth, tel, zonecode, address, detailAddress};
         await updateDoc(userDoc, newFie);
     }
     
@@ -137,14 +134,6 @@ const UserinfoEdit = () => {
             // alert('회원정보 수정 완료');
             // navigation('/info');
             // }
-            // await updateDoc(doc(db, 'users', id),{
-            //     zonecode:newZonecode,
-            //     address:newaddress,
-            //     detailaddress:newdetailAdd,
-            //     birth,
-            //     tel
-            // })
-            
             alert('회원정보 수정 완료');
             navigation('/info');
             
@@ -188,10 +177,10 @@ const UserinfoEdit = () => {
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>주소 : </label>
-                                <input type="text" name="username" className='w-25 mb-2' value={newZonecode} onChange={(e)=>setNewZonecode(e.target.value)} placeholder='우편번호'/>
+                                <input type="text" name="username" className='w-25 mb-2' value={zonecode} onChange={(e)=>setZonecode(e.target.value)} placeholder='우편번호'/>
                                 <button type="button" className="ms-1 mb-2 btn btn-secondary" onClick={onClickHandler}>주소찾기</button>
-                                <input type="text" name="username" value={newaddress} onChange={(e)=>setNewaddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
-                                <input type="text" name="username" value={newdetailAdd} onChange={(e)=>setNewDetailAdd(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
+                                <input type="text" name="username" value={address} onChange={(e)=>setAddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
+                                <input type="text" name="username" value={detailAddress} onChange={(e)=>setDetailAddress(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>생년월일 : </label>
@@ -202,7 +191,7 @@ const UserinfoEdit = () => {
                                 <input type="text" name='tel' placeholder="휴대폰 번호 입력 ('-'제외 11자리 입력)" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                             </div>
                             <div className='text-center mt-5'>
-                                <Link to='/userinfo' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
+                                <Link to='/info' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
                                 <button className='btn btn-lg btn-secondary text-white' onClick={()=>{updateUser(user.id); alert('회원정보 수정완료'); navigation('/info')}}>정 보 수 정</button>
                             </div>
                         </div>

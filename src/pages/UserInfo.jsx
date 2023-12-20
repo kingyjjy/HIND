@@ -54,7 +54,7 @@ const UserInfo = () => {
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보</h2>
                             <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
                                 <div className=''>
-                                    <label className='col-3 mt-4 d-block'>사용자 이미지 : </label>
+                                    {/* <label className='col-3 mt-4 d-block'>사용자 이미지 : </label> */}
                                     <div className="rounded-circle mx-auto logo" style={{ width:'100px', height:'100px', overflow:'hidden', backgroundImage:`url(${usericon})`}}>
                                         
                                     </div>

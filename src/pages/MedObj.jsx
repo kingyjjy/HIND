@@ -1,7 +1,8 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
-import { Link , useLocation} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import TopNav from '../layout/TopNav'
+import Footer from '../layout/Footer';
 import '../assets/css/medobj.css';
 
 const MedObj = ({burl}) => {
@@ -32,6 +33,7 @@ const MedObj = ({burl}) => {
 useEffect(()=>{
     getList();
 }, [list]);
+
   return (
     <>
         <TopNav />
@@ -47,6 +49,7 @@ useEffect(()=>{
                         })} 
           </div>
         </div>
+        <Footer/>
     </>
   )
 }

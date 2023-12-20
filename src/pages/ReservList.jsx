@@ -31,7 +31,7 @@ const ReservList = () => {
   return (
     <>
     <LoggedTop/>
-    <div className="container mb-5">
+    <div className="container mb-5 d-flex flex-column min-vh-100">
         <div className="reserv-list">
             <h1 className="reserv-title">예약 내역</h1>
             {/*loop*/}

@@ -35,3 +35,23 @@
   .offcanvas-header{
     justify-content: end;
   }
+
+  /* tobnav */
+  .authbox>a{
+    color:#3E54AC !important;
+    border-color: #3E54AC;
+  }
+  .authbox>a:hover{
+    background-color: #3E54AC;
+    color:#fff !important;
+  }
+
+  /* loggedTop */
+  .outbox{
+    color: #3E54AC !important;
+    border-color: #3E54AC;
+  }
+  .outbox:hover{
+    background-color: #3E54AC;
+    color:#fff !important;
+  }

@@ -128,16 +128,11 @@ const LoggedTop = () => {
                     
                 </Nav>
                 <div className='d-flex'>
-                    {/* <button type='button' className='btn me-2' data-bs-toggle='offcanvas' data-bs-target='#sidenav'><GrUser/></button> */}
                     <button type='button' className='btn me-2' onClick={handelShow}><GrUser/></button>
-                    <button type="button" onClick={logout} className='btn btn-outline-primary'>로그아웃</button>
-                    {/* <Link to="/login" className='link btn btn-outline-dark'>로그인</Link>  
-                    <Link to="/register" className='link btn btn-outline-dark mx-2'>회원가입</Link> */}
+                    <button type="button" onClick={logout} className='btn btn-outline-primary outbox'>로그아웃</button>
                 </div>
-                {/* </div>   */}
             </Container>
         </Nav>
-         {/* sidebar notlogin*/}
         <Offcanvas show={show} onHide={handleClose} placement={'end'}>
             <Offcanvas.Header closeButton>
                 

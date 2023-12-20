@@ -2,8 +2,8 @@ import React,{useState} from 'react'
 import {useDaumPostcodePopup} from 'react-daum-postcode';
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../config/firebase';
-import { collection, addDoc ,serverTimestamp, getDoc, query } from 'firebase/firestore';
-import { createUserWithEmailAndPassword, fetchSignInMethodsForEmail, updateProfile} from 'firebase/auth';
+import { collection, addDoc ,serverTimestamp } from 'firebase/firestore';
+import { createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
 
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
@@ -14,24 +14,16 @@ const Register = () => {
 
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
-  const [chkEmail, setChkEmail] = useState('');
   const [pass, setPass] = useState('');
   const [confirmPass, setConfirmPass] = useState('');
   const [cperr, setCperr] =useState('');
   const [chkpass, setChkpass] = useState('');
   const [regEmail, setRegEmail] = useState('');
-  const [zonecode, setZonecode] = useState('');
-  const [address, setAddress] = useState('');
-  const [detailaddress, setDetailaddress] = useState('');
   const navigate = useNavigate();
 
   const user = auth.currentUser;
-  // const loggedUser = props.userinfo;
-  // const checkEmail = async(email)=>{
-  //   const check = await fetchSignInMethodsForEmail(auth, email);
-  //   return check.length > 0 ? '이미 가입된 이메일 입니다.' : undefined;
-  // };
 
+  //이메일, 비밀번호 검증
   const emailReg = async(e)=>{
     setEmail(e.target.value);
     const reg = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
@@ -59,30 +51,30 @@ const Register = () => {
     }
   }
 
-  const onClickHandler = ()=>{
-    open({onComplete:handleComplete});
-  }
-  // 주소 받기
-  const handleComplete =(data)=>{
-    let fullAddress = data.address;
-		let extraAddress = '';
-    let zoneCodes = data.zonecode;
-    setZonecode(data.zonecode)
-    setAddress(data.address)
+  // const onClickHandler = ()=>{
+  //   open({onComplete:handleComplete});
+  // }
+  // // 주소 받기
+  // const handleComplete =(data)=>{
+  //   let fullAddress = data.address;
+	// 	let extraAddress = '';
+  //   let zoneCodes = data.zonecode;
+  //   setZonecode(data.zonecode)
+  //   setAddress(data.address)
 
-		if (data.addressType === 'R') {
-			if (data.bname !== '') {
-				extraAddress += data.bname;
-			}
-			if (data.buildingName !== '') {
-				extraAddress +=
-					extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
-			}
-			fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
-		}
-    console.log(zoneCodes);
-    console.log(fullAddress);
-  };
+	// 	if (data.addressType === 'R') {
+	// 		if (data.bname !== '') {
+	// 			extraAddress += data.bname;
+	// 		}
+	// 		if (data.buildingName !== '') {
+	// 			extraAddress +=
+	// 				extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
+	// 		}
+	// 		fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
+	// 	}
+  //   console.log(zoneCodes);
+  //   console.log(fullAddress);
+  // };
 
 const handleSubmit = async(e)=>{
     e.preventDefault();
@@ -91,9 +83,9 @@ const handleSubmit = async(e)=>{
       email,
       pass
     }
-
+    //필수입력
     let hasEmpty = false;
-    for(let i in require){
+    for(let i in require){ 
       if(!require[i]){
         hasEmpty=true;
       }
@@ -102,18 +94,14 @@ const handleSubmit = async(e)=>{
       alert('별 표시부분은 필수 입력칸 입니다.');
     }else{
       try{
-        await createUserWithEmailAndPassword(auth, email, pass)
-          .then( await updateProfile(user,{displayName:name}))
-          .then( await addDoc(collection(db, 'users'), {
+        await createUserWithEmailAndPassword(auth, email, pass) //가입         
+          .then( await addDoc(collection(db, 'users'), { //유저정보 저장
             timestamp:serverTimestamp(),
             email:email,
             name:name,
-            // zonecode:zonecode,
-            // address:address,
-            // detailaddress:detailaddress,
-            uid:auth.currentUser.uid
+            uid:user.uid
           }))
-          
+          .then( await updateProfile(user,{displayName:name}));
         alert('회원가입이 완료되었습니다.');
         navigate('/login');
       }catch(err){
@@ -136,9 +124,6 @@ const handleSubmit = async(e)=>{
                 <div className='my-4'>
                   <label htmlFor="name" className='mb-2'>이름 <span className="text-danger">*</span></label>
                   <input type="text" name="name" className="form-control w-50" value={name} onChange={(e)=>setName(e.target.value)} placeholder='이름'/>
-                  {/* {
-                    cpname !== '' ? (<div className='text-danger'>{cpname}</div>):null  
-                  } */}
                 </div>
                 <div className='my-4'>
                   <label htmlFor="email" className='mb-2'>이메일 <span className="text-danger">*</span></label>

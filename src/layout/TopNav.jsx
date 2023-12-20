@@ -94,38 +94,12 @@ const TopNav = () => {
                     </NavDropdown>
                     
                 </Nav>
-                <div className='d-flex'>
-                {/* <button type='button' className='btn me-2' onClick={handelShow}><GrUser/></button> */}
+                <div className='d-flex authbox'>
                     <Link to="/login" className='link btn btn-outline-dark'>로그인</Link>  
                     <Link to="/register" className='link btn btn-outline-dark mx-2'>회원가입</Link>
                 </div>
-                {/* </div>   */}
             </Container>
         </Nav>
-        {/* sidebar notlogin*/}
-        {/* <Offcanvas show={show} onHide={handleClose} placement={'end'}>
-            <Offcanvas.Header closeButton>
-                <Offcanvas.Title>MyPage</Offcanvas.Title>
-            </Offcanvas.Header>
-            <Offcanvas.Body>
-                <div className="infobox border-bottom  bg-white ms-2 pb-3">
-                    <div className="rounded-circle border mt-4 mx-auto text-center" style={{width:'70px', height:'70px', lineHeight:'60px'}}>
-                        <GrUserManager size={40}/>
-                    </div>
-                    <div className="info-textbox ms-4 my-3 pe-2 text-start" id='myinfo-media'>
-                        <h5 className='fw-bold text-center'>Username</h5>
-                        <h6 className='text-center'>useremail@example.com</h6>
-                    </div> 
-                </div>
-                <Link to="/info" className="list-group-item list-group-item-action list-group-item-light p-3"><GrUserSettings className='me-2'/> 내 정보</Link>
-                <Link to="/bookmark" className="list-group-item list-group-item-action list-group-item-light p-3"><GiHearts className='me-2'/> 즐겨찾기</Link>
-                <Link to="/reserv-list" className="list-group-item list-group-item-action list-group-item-light p-3"><GrBook className='me-2'/> 예약내역</Link>
-                <p className='pt-2 text-end'><Link to="#"  className='link-dark'>logout</Link></p>
-            </Offcanvas.Body>
-        </Offcanvas> */}
-        
-        {/* /sidebar */}
-
     </>
   )
 }

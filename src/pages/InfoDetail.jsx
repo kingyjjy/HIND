@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom'
 import { IoBookmarksOutline } from "react-icons/io5";
 import { IoBookmarks } from "react-icons/io5";
 import { useLocation } from 'react-router-dom'
+import LoggedTop from '../layout/LoggedTop'
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
 import '../assets/css/infodetail.css';
+import { useAuthValue } from '../context/AuthProvider'
 
 const InfoDetail = () => {
     const location = useLocation();
-
+    const {isLogged} = useAuthValue();
     const [bookmark, setBookmark] = useState(false);
 
     const handleBookmark = () => {
@@ -21,7 +23,7 @@ const InfoDetail = () => {
 
   return (
     <>
-    <TopNav/>
+    {isLogged? <LoggedTop />:<TopNav/> }
         <div className="container detail-all">
             <div className="section">
                 <div className="detail-title mt-5">

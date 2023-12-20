@@ -9,7 +9,7 @@ const Search = () => {
   const navigate = useNavigate();
 
   const handleSearch = () => {
-    navigate("/searchlist");
+    navigate("/searchapi");
   }
   return (
     <div className='searchbar pb-5' style={{height:'500px', background:`linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(${searchbar}) no-repeat center`, backgroundSize:'cover'}}>

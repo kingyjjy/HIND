@@ -21,6 +21,7 @@ import ObjList from './components/ObjList'
 import ImageMap from './pages/ImageMap';
 import InfoDetail from './pages/InfoDetail'
 import Reservation from './pages/Reservation'
+import SearchApi from './components/SearchApi';
 
 
 const App = () => {
@@ -51,7 +52,8 @@ const App = () => {
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register userinfo={userinfo} isLogged={isLogged}/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
-          <Route path='/searchlist' element={<SearchList/>}/>
+          {/* <Route path='/searchlist' element={<SearchList/>}/> */}
+          <Route path='/searchapi' element={<SearchApi/>}/>
           <Route path='/healthinfo' element={<HealthInfo/>}/>
           <Route path='/detail' element={<InfoDetail/>}/>
           {isLogged ? (<Route path='/reservation' element={<Reservation/>}/>):(<Route path='/reservation' element={<NotLogin/>}/>)}

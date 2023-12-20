@@ -55,3 +55,13 @@
     background-color: #3E54AC;
     color:#fff !important;
   }
+
+  /* notlogin */
+  .notlogbtn{
+    background-color: #3E54AC;
+    color: #fff !important;
+  }
+  .notlogbtn:hover{
+    background-color: #a0b0f0;
+    border-color: #a0b0f0;
+  }

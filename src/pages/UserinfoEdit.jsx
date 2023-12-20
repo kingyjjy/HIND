@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import {useDaumPostcodePopup} from 'react-daum-postcode';
 import { Link, useNavigate } from 'react-router-dom'
-import {collection, getDocs, query, addDoc ,setDoc, where, doc, updateDoc, Firestore } from 'firebase/firestore'
+import {collection, getDocs, query, addDoc ,setDoc, where, doc, updateDoc, Firestore, orderBy } from 'firebase/firestore'
 import { db,auth, storage } from '../config/firebase';
 import { useAuthValue } from '../context/AuthProvider';
 import '../assets/css/userinfo.css'
@@ -87,13 +87,14 @@ const UserinfoEdit = () => {
 
     const fetchUser = async()=>{
         try{
+            const email = user.email;
             const q = query(
-                  collection(db, "users"), where('uid', '==', uid)
+                  collection(db, "users"), where('email', '==', email)
                 );
             const querySnapshot = await getDocs(q);
             setUsers(querySnapshot.docs.map((doc)=>({...doc.data(), id:doc.id})))
             const get = await getDocs(collection(db, "users"))
-            console.log(get);
+            console.log(querySnapshot);
         }catch(err){
             console.error(err);
         }
@@ -119,6 +120,7 @@ const UserinfoEdit = () => {
                 console.error('error image upload', err);
             }
         }
+
         try{
             // if(photoURL !== null){
             //     await updateProfile(user, {photoURL:photoURL})
@@ -133,6 +135,7 @@ const UserinfoEdit = () => {
             // alert('회원정보 수정 완료');
             // navigation('/info');
             // }
+            updateUser(user.id);
             alert('회원정보 수정 완료');
             navigation('/info');
             
@@ -152,26 +155,26 @@ const UserinfoEdit = () => {
                         <div className="m-5 p-5 mx-auto border shadow-lg " style={{borderRadius:'20px'}}>
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보 수정</h2>
                             <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
-                                <div className=''>
-                                    <label className='col-3 mt-4 d-block'>사용자 이미지 : </label>
+                                <div className='mb-4'>
+                                    {/* <label className='col-3 mt-4 d-block'>사용자 이미지 : </label> */}
                                     <div className="rounded-circle mx-auto logo" style={{ width:'100px', height:'100px', overflow:'hidden', backgroundImage:`url(${usericon})`}}>
                                         {fileName && <img src={userIcon} alt={fileName}/>}
                                     </div>
                                 </div>
-                                <div className='filebox'>
+                                {/* <div className='filebox'>
                                     <input type="file" hidden id='usericon' onInput={imgChange}/>
                                     <label htmlFor="usericon" style={{ color:'#fff',padding:'15px 20px',lineHeight:'0px' , cursor:'pointer', marginRight:'10px', backgroundColor:'#5A96E3'}}>이미지 선택</label>
                                     {fileName}
-                                </div>
+                                </div> */}
                             </div>
                             <div  className="text-start mb-4">
                                 <label className='col-2'>이름 : </label>
-                                <input type="text" name="username" className='w-50' readOnly value={userinfo?.displayName}/>
+                                <input type="text" name="username" className='w-50' readOnly value={user.name}/>
                                 <div className="text-danger" style={{marginLeft:'11.5rem'}}>*이름 수정 불가*</div>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>이메일 : </label>
-                                <input type="text" className='w-50' name="username" readOnly value={userinfo?.email}/>
+                                <input type="text" className='w-50' name="username" readOnly value={user.email}/>
                                 <div className="text-danger" style={{marginLeft:'11.5rem'}}>*이메일 수정 불가*</div>
                             </div>
                             <div className="text-start mb-4">
@@ -206,6 +209,7 @@ const UserinfoEdit = () => {
     <LoggedTop/>
     {showUser}
     <Footer/>
+
     </>
   )
 }

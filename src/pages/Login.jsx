@@ -2,13 +2,16 @@ import React,{useState} from 'react'
 import {FcGoogle} from 'react-icons/fc'
 import {SiKakaotalk, SiFacebook} from 'react-icons/si'
 import { Link, useNavigate } from 'react-router-dom'
-import { auth } from '../config/firebase'
+import { auth, db } from '../config/firebase'
 import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth'
+import { addDoc, collection } from 'firebase/firestore'
 
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
+  const [name, setName] = useState('');
+  const [profile, setProfile] = useState(null);
   const navigate = useNavigate();
   const user = auth.currentUser;
 
@@ -39,18 +42,36 @@ const Login = () => {
   const handleGooglesign = () => {
     const googleProvider = new GoogleAuthProvider();
     signInWithPopup(auth, googleProvider)
-    .then(()=> navigate('/'))
+    .then(async()=> {
+      
+      setName(()=>user.displayName)
+      setProfile(()=>user.photoURL)
+      setEmail(()=>user.email)
+      await addDoc(collection(db, 'users'),{
+        name:user.displayName,
+        email:user.email,
+        uid:user.uid
+      })
+      navigate('/')
+    })
     .catch((err)=>alert(err.message))
 
-    // UserImage = user.photoURL
-    // UserName = user.displayName
-    // UserEmail = user.email
   }
   // facebooksign
   const handleFacebooksign = () =>{
     const facebookProvider = new FacebookAuthProvider();
     signInWithPopup(auth, facebookProvider)
-    .then(()=>navigate('/'))
+    .then(async()=>{
+      setName(()=>user.displayName)
+      setProfile(()=>user.photoURL)
+      setEmail(()=>user.email)
+      await addDoc(collection(db, 'users'),{
+        name:user.displayName,
+        email:user.email,
+        uid:user.uid
+      })
+      navigate('/')
+    })
     .catch((err)=>alert(err.message))
   }
   //kakaosign

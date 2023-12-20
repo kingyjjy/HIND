@@ -1,5 +1,4 @@
-import React,{useState} from 'react'
-import {useDaumPostcodePopup} from 'react-daum-postcode';
+import React,{useEffect, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../config/firebase';
 import { collection, addDoc ,serverTimestamp } from 'firebase/firestore';
@@ -9,9 +8,6 @@ import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
 
 const Register = () => {
-  const CURRENT_URL = 'https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js';
-  const open = useDaumPostcodePopup(CURRENT_URL);
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [pass, setPass] = useState('');
@@ -51,31 +47,6 @@ const Register = () => {
     }
   }
 
-  // const onClickHandler = ()=>{
-  //   open({onComplete:handleComplete});
-  // }
-  // // 주소 받기
-  // const handleComplete =(data)=>{
-  //   let fullAddress = data.address;
-	// 	let extraAddress = '';
-  //   let zoneCodes = data.zonecode;
-  //   setZonecode(data.zonecode)
-  //   setAddress(data.address)
-
-	// 	if (data.addressType === 'R') {
-	// 		if (data.bname !== '') {
-	// 			extraAddress += data.bname;
-	// 		}
-	// 		if (data.buildingName !== '') {
-	// 			extraAddress +=
-	// 				extraAddress !== '' ? `, ${data.buildingName}` : data.buildingName;
-	// 		}
-	// 		fullAddress += extraAddress !== '' ? ` (${extraAddress})` : '';
-	// 	}
-  //   console.log(zoneCodes);
-  //   console.log(fullAddress);
-  // };
-
 const handleSubmit = async(e)=>{
     e.preventDefault();
     const require = {
@@ -94,16 +65,36 @@ const handleSubmit = async(e)=>{
       alert('별 표시부분은 필수 입력칸 입니다.');
     }else{
       try{
-        await createUserWithEmailAndPassword(auth, email, pass) //가입         
-          .then( await addDoc(collection(db, 'users'), { //유저정보 저장
+        // await createUserWithEmailAndPassword(auth, email, pass) //가입 
+        //   .then( await updateProfile(user,{displayName:name}))
+        //   .then( await addDoc(collection(db, 'users'), { //유저정보 저장
+        //     timestamp:serverTimestamp(),
+        //     email:email,
+        //     name:name,
+        //     uid:user.uid
+        //   }))
+        
+        const {join} = await createUserWithEmailAndPassword(auth, email, pass);
+        await updateProfile(user, {displayName:name})
+          .then(await addDoc(collection(db,'users'),{
             timestamp:serverTimestamp(),
-            email:email,
-            name:name,
-            uid:user.uid
+            email,
+            name,
+            uid:user.id
           }))
-          .then( await updateProfile(user,{displayName:name}));
-        alert('회원가입이 완료되었습니다.');
+        
+
+          // .then(()=>{updateProfile(user, {displayName:name})})
+          // .then(()=>{addDoc(collection(db, 'users'), {
+          //   timestamp:serverTimestamp(),
+          //   email,
+          //   name,
+          //   uid:user.id
+          // })})
+          
+        window.alert('회원가입이 완료되었습니다.');
         navigate('/login');
+        return join;
       }catch(err){
         console.error('register error',err);
       }
@@ -118,7 +109,7 @@ const handleSubmit = async(e)=>{
       <form>
         <div className="container">
           <hr /> 
-          <div className="regibox border shadow-lg rounded mx-auto mb-3 px-5" style={{width:'70%'}}>
+          <div className="regibox border shadow-lg mx-auto mb-3 px-5" style={{width:'70%', marginTop:'100px', borderRadius:'20px'}}>
             <h2 className="text-center mt-5">회원가입</h2>
               <div className='p-5'>
                 <div className='my-4'>
@@ -158,7 +149,7 @@ const handleSubmit = async(e)=>{
                   <input type="text" id='detailaddress' name='detailAddress' className="form-control"  placeholder='세부주소' value={detailaddress} onChange={(e)=>setDetailaddress(e.target.value)}/>
                 </div> */}
                 <div className="d-flex justify-content-center">
-                  <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-secondary mt-5 mb-4">회원가입</button>
+                  <button type="submit" onClick={handleSubmit} className="btn btn-lg btn-secondary mt-5 mb-4" style={{backgroundColor:'#3E54AC',}}>회원가입</button>
                 </div>
               </div>
           </div>

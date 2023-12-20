@@ -78,7 +78,7 @@ const UserinfoEdit = () => {
         setUserIcon(newIcon);
         setFileName(newIcon.name);
         setUserImg(e.target.files[0]);
-        console.log(extExt(fileName));
+        // console.log(extExt(fileName));
     }
 
     useEffect(()=>{
@@ -87,7 +87,6 @@ const UserinfoEdit = () => {
 
     const fetchUser = async()=>{
         try{
-            // const email = user.email;
             const q = query(
                   collection(db, "users"), where('uid', '==', uid)
                 );
@@ -149,8 +148,8 @@ const UserinfoEdit = () => {
         <div className='container' key={index}>
             <div  className="border-top">
 
-                    <div  className="userinfo mx-5">     
-                        <div className="m-5 p-5 mx-auto border shadow-lg rounded">
+                    <div  className="userinfo mx-5" style={{marginTop:'100px'}}>     
+                        <div className="m-5 p-5 mx-auto border shadow-lg " style={{borderRadius:'20px'}}>
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보 수정</h2>
                             <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
                                 <div className=''>
@@ -178,7 +177,7 @@ const UserinfoEdit = () => {
                             <div className="text-start mb-4">
                                 <label className='col-2'>주소 : </label>
                                 <input type="text" name="username" className='w-25 mb-2' value={zonecode} onChange={(e)=>setZonecode(e.target.value)} placeholder='우편번호'/>
-                                <button type="button" className="ms-1 mb-2 btn btn-secondary" onClick={onClickHandler}>주소찾기</button>
+                                <button type="button" className="ms-1 mb-2 btn btn-secondary" onClick={onClickHandler} style={{backgroundColor:'#3E54AC'}}>주소찾기</button>
                                 <input type="text" name="username" value={address} onChange={(e)=>setAddress(e.target.value)} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}} placeholder='주소'/>
                                 <input type="text" name="username" value={detailAddress} onChange={(e)=>setDetailAddress(e.target.value)} style={{marginLeft:'11.5rem'}} placeholder='상세주소'/>
                             </div>
@@ -191,8 +190,8 @@ const UserinfoEdit = () => {
                                 <input type="text" name='tel' placeholder="휴대폰 번호 입력 ('-'제외 11자리 입력)" value={tel} onChange={(e)=>setTel(e.target.value)}/>
                             </div>
                             <div className='text-center mt-5'>
-                                <Link to='/info' className='btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
-                                <button className='btn btn-lg btn-secondary text-white' onClick={()=>{updateUser(user.id); alert('회원정보 수정완료'); navigation('/info')}}>정 보 수 정</button>
+                                <Link to='/info' className='uneditbtn btn btn-lg btn-outline-secondary me-2'>수 정 취 소</Link>
+                                <button className='btn btn-lg btn-secondary text-white' onClick={()=>{updateUser(user.id); alert('회원정보 수정완료'); navigation('/info')}} style={{backgroundColor:'#3E54AC'}}>정 보 수 정</button>
                             </div>
                         </div>
                     </div>

@@ -22,6 +22,7 @@ import ImageMap from './pages/ImageMap';
 import InfoDetail from './pages/InfoDetail'
 import Reservation from './pages/Reservation'
 import SearchApi from './components/SearchApi';
+import TopButton from './components/TopButton'
 
 
 const App = () => {
@@ -46,6 +47,7 @@ const App = () => {
   return (
     <Router>
       <AuthProvider value={{userinfo, isLogged}}>
+        <TopButton />
         <Routes>
           <Route path='/' element={<ImageMap/>}></Route>
           <Route path='/main' element={<Main/>}></Route>

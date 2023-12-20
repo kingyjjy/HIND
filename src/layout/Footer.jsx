@@ -4,7 +4,7 @@ import {RiKakaoTalkLine,RiGithubFill,RiInstagramLine,RiTwitterXFill,RiGlobalLine
 
 const Footer = () => {
   return (
-    <footer className='footer py-5 mt-auto bg-secondary'>
+    <footer className='footer py-5 mt-auto ' style={{backgroundColor:'#435585'}}>
         <div className="container text-center text-lg-start">
             <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
                 <div className="me-5 d-none d-lg-block">

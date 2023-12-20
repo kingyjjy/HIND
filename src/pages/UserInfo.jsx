@@ -49,8 +49,8 @@ const UserInfo = () => {
         <div className='container'>
             <div  className="border-top">
 
-                    <div key={index} className="userinfo mx-5">     
-                        <div className="m-5 p-5 mx-auto border shadow-lg rounded">
+                    <div key={index} className="userinfo mx-5" style={{marginTop:'100px'}}>     
+                        <div className="m-5 p-5 mx-auto border shadow-lg " style={{borderRadius:'20px'}}>
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보</h2>
                             <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
                                 <div className=''>
@@ -84,7 +84,7 @@ const UserInfo = () => {
                                 <input type="text" name='tel' value={user.tel}/>
                             </div>
                             <div className='text-center mt-5'>
-                                <Link to="/userinfo-edit" className='btn btn-lg btn-secondary text-white'>정 보 수 정</Link>
+                                <Link to="/userinfo-edit" className='btn btn-lg btn-secondary text-white' style={{backgroundColor:'#3E54AC'}}>정 보 수 정</Link>
                             </div>
                         </div>
                     </div>

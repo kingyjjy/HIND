@@ -27,7 +27,7 @@ const Reservation = () => {
     const nav = useNavigate();
     const user = auth.currentUser;
     const uid = user.uid;
-
+    console.log(user);
     useEffect(()=>{
         getUser();
     },[]);

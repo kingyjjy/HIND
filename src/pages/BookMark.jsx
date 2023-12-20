@@ -27,7 +27,7 @@ const BookMark = () => {
                                 <p><span>tel : </span>031-8344-2323</p>
                             </div>
                             <div className="text-center">
-                                <Link to="/reservation" className='btn btn-secondary text-white my-3'>예약하기</Link>
+                                <Link to="/reservation" className='btn btn-secondary text-white my-3' style={{backgroundColor:'#3E54AC'}}>예약하기</Link>
                             </div>
                         </div>
                        
@@ -42,7 +42,7 @@ const BookMark = () => {
                                 <p><span>tel : </span>031-8344-2323</p>
                             </div>
                             <div className="text-center">
-                                <Link to="/reservation" className='btn btn-secondary text-white my-3'>예약하기</Link>
+                                <Link to="/reservation" className='btn btn-secondary text-white my-3' style={{backgroundColor:'#3E54AC'}}>예약하기</Link>
                             </div>
                         </div>
                         <div className="col-3 border shadow-md rounded px-4  me-4 mb-5" >
@@ -56,7 +56,7 @@ const BookMark = () => {
                                 <p><span>tel : </span>031-8344-2323</p>
                             </div>
                             <div className="text-center">
-                                <Link to="/reservation" className='btn btn-secondary text-white my-3'>예약하기</Link>
+                                <Link to="/reservation" className='btn btn-secondary text-white my-3' style={{backgroundColor:'#3E54AC'}}>예약하기</Link>
                             </div>
                         </div>
                         <div className="col-3 border shadow-md rounded px-4  me-4 mb-5" >
@@ -70,7 +70,7 @@ const BookMark = () => {
                                 <p><span>tel : </span>031-8344-2323</p>
                             </div>
                             <div className="text-center">
-                                <Link to="/reservation" className='btn btn-secondary text-white my-3'>예약하기</Link>
+                                <Link to="/reservation" className='btn btn-secondary text-white my-3' style={{backgroundColor:'#3E54AC'}}>예약하기</Link>
                             </div>
                         </div>
                         

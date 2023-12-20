@@ -73,11 +73,11 @@ const UserInfo = () => {
                                 <label className='col-2'>주소 : </label>
                                 <input type="text" name="username" readOnly className='w-25 mb-2' value={user.zonecode}/>
                                 <input type="text" name="username" readOnly value={user.address} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}}/>
-                                <input type="text" name="username" readOnly value={user.detailaddress}  style={{marginLeft:'11.5rem'}}/>
+                                <input type="text" name="username" readOnly value={user.detailAddress}  style={{marginLeft:'11.5rem'}}/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>생년월일 : </label>
-                                <input type="date" name="username" readOnly className='w-25' value={user.birth}/>
+                                <input type="text" name="username" readOnly className='w-25' value={user.birth}/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>전화번호 : </label>

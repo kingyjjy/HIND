@@ -40,12 +40,12 @@
     border: 1px solid #c5c4c4;
   }
   
-  .res-box>.res-success{
+  .res-success{
     display: flex;
     justify-content: center;
   }
   
-  .res-box>.res-success button{
+  .res-success button{
     padding: 15px 35px;
     border-radius: 10px;
     background-color: #3E54AC;
@@ -55,7 +55,7 @@
     margin-bottom: 40px;
   }
   
-  .res-box>.res-success button:hover{
+  .res-success button:hover{
     background-color: #BFACE2;
   }
 

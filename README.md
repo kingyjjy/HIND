@@ -34,7 +34,7 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
 - 로그인, 회원가입
 - 병원 검색
 - 병원 예약
-- 공공데이터 api, 카카오 api
+- 공공데이터 api, 카카오 api, 다음 api
   <br/><br/>
   
 ## :receipt: 화면 구성
@@ -49,19 +49,29 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
   <tbody>
       <tr>
           <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/5b206feb-e420-4a3f-8eee-37672ab5571d" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/f35bf9f8-86d4-428d-a134-e38aed591e1d" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/2e8d58e9-01ef-449a-a09b-470a29465079" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/4fd40ca0-1124-4b16-a4c3-08d6936c3594" style="max-width:100%;"></a></td>
       </tr>
       <tr>
-          <td align="center">로그인 / 마이페이지</td>
-          <td align="center">회원가입</td>
-          <td align="center">내 정보</td>
+          <th align="center">로그인 / 마이페이지</th>
+          <th align="center">회원가입</th>
+          <th align="center">내 정보</th>
       </tr>
       <tr>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/246d9f31-a2f3-4a5e-9e0c-bdc8dc178d4e" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/0d968934-3ffa-4d04-840e-ea419e5f8ce4" style="max-width:100%;"></a></td>
-          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/246d9f31-a2f3-4a5e-9e0c-bdc8dc178d4e" style="max-width:100%;"></a><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/61ea4543-3782-46e1-9201-e7461042ede3" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/940dd516-a106-417f-9393-8cc76a1bb153" style="max-width:100%;"></a></td>
+          <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/981ba394-046c-42bf-9305-7a3102c180dc" style="max-width:100%;"></a></td>
       </tr>
+    <tr>
+      <th align="center">검색 페이지</th>
+      <th align="center">예약하기 페이지</th>
+      <th align="center">예약 내역 페이지</th>
+    </tr>
+    <tr>
+      <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="" style="max-width:100%;"></a></td>
+      <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/c6bb4231-247f-44f8-9c03-68d4a7649330" style="max-width:100%;"></a></td>
+      <td align="center"><a target="_blank" rel="noopener noreferrer" href="#"><img width="300" src="https://github.com/kingyjjy/hospitalweb/assets/141803591/7e4cee99-13a5-4807-a89d-8e0ecae181c3" style="max-width:100%;"></a></td>
+    </tr>
   </tbody>
 </table>
 <br /><br />
@@ -69,21 +79,21 @@ react + firebase 기반으로 제작된 병원 찾기 웹 사이트
 ## :white_heart: 팀원 소개
 #### 김연지 (https://github.com/kingyjjy)
 - 회원가입
-  - 주소 카카오 api
-  -  아이디 중복 확인
-  - 이메일 중복 확인
+  -  유효성 검사
 - 로그인
   - 간편 소셜 로그인 ( 구글, 카카오, 페이스북 )
+- 로그아웃
 - 마이페이지
   - offcanvas
   - 내 정보
   - 즐겨찾기
   - 예약내역
 - 내정보
-  - 회원정보수정
-- 예약
-    - 예약하기
-    - 예약 취소
+  - 회원정보 수정
+- 예약하기
+  - 회원정보 가져오기
+- 예약내역
+  - 예약취소
 
 #### 최민정 (https://github.com/kjh27ss)
 - 지도

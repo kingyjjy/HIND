@@ -33,7 +33,8 @@ const Reservation = () => {
     },[]);
     const getUser = async()=>{
         try{   
-            const q = query(collection(db, 'users'), where('uid', '==', uid));
+            const email = user.email;
+            const q = query(collection(db, 'users'), where('email', '==', email));
             const querySnapshot = await getDocs(q);
             setUsers(querySnapshot.docs.map((doc)=>({...doc.data(), id:doc.id})));
             console.log(querySnapshot);

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useAuthValue } from '../context/AuthProvider'
 import TopNav from '../layout/TopNav'
 import LoggedTop from '../layout/LoggedTop'
@@ -8,11 +8,16 @@ import Info from '../components/Info'
 import Cservice from '../layout/Cservice';
 import ApiList from '../components/ApiList'
 import Popup from '../components/Popup'
+import { auth } from '../config/firebase'
 
 
 
 const Main = () => {
   const {isLogged} = useAuthValue();
+  const user =auth.currentUser;
+  useEffect(()=>{
+    console.log(user)
+  },[])
   return (
     <div>
       {

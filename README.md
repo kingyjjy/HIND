@@ -4,6 +4,7 @@ react + firebase 기반으로 제작된 김포 병원 찾기 웹 사이트
 <br/><br/>
 
 ## 	:bookmark_tabs: 프로젝트 소개
+- Hospital + Find = HIND
 - 김포 지역 행정구역에 따라 병원을 검색하고 예약 가능한 서비스를 제공하는 사이트입니다.
 <br/><br/>
 

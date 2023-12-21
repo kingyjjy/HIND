@@ -2,17 +2,15 @@ import React,{useState, useEffect} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {onAuthStateChanged} from 'firebase/auth'
-import {auth, db} from './config/firebase'
+import {auth} from './config/firebase'
 import { AuthProvider } from './context/AuthProvider';
-import { collection, getDocs, where, query, serverTimestamp } from 'firebase/firestore';
-import PrivateRoute from './context/PrivateRoute';
+
 import Main from './pages/Main'
 import Login from './pages/Login';
 import UserInfo from './pages/UserInfo';
 import Register from './pages/Register';
 import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
-import LoggedTop from './layout/LoggedTop';
 import UserinfoEdit from './pages/UserinfoEdit';
 import SearchList from './pages/SearchList';
 import HealthInfo from './pages/HealthInfo';

@@ -4,25 +4,25 @@ import Footer from '../layout/Footer';
 import '../assets/css/reservlist.css';
 import { collection, deleteDoc, getDocs, query, where, doc } from 'firebase/firestore';
 import { auth,db } from '../config/firebase';
-import { useLocation } from 'react-router-dom';
 
 const ReservList = () => {
     const [revList, setRevList] = useState([]);
-    const location = useLocation();
     const user = auth.currentUser;
-    const name = user.displayName;
+    const email = user.email;
     useEffect(()=>{
         getRevList();
     },[]);
     const getRevList = async()=>{
         try{
-            const q = query(collection(db, 'reservations'), where('name', '==', name));
+            const q = query(collection(db, 'reservations'), where('email', '==', email));
             const querySnap = await getDocs(q);
             setRevList(querySnap.docs.map((doc)=>({...doc.data(), id:doc.id})));
             console.log(querySnap);
         }catch(err){
             console.error(err);
         }
+
+
     }
     const deleteList = async(id)=>{
         const revDoc = doc(db, 'reservations', id);
@@ -31,9 +31,13 @@ const ReservList = () => {
   return (
     <>
     <LoggedTop/>
-    <div className="container mb-5 d-flex flex-column min-vh-100">
-        <div className="reserv-list">
+    <div className="container mb-5 d-flex flex-column min-vh-100"> 
+        <hr />
+        <div className="reserv-list">       
             <h1 className="reserv-title">예약 내역</h1>
+            {/* <div className="text-center" style={{marginTop:'100px'}}>
+                <h4 style={{color:'#999'}}>* 예약내역이 없습니다. *</h4>
+            </div> */}
             {/*loop*/}
             {revList.map((rev,index)=>(
                 <div className="list-box d-flex" key={index}>

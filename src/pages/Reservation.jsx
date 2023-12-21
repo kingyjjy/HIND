@@ -57,6 +57,7 @@ const Reservation = () => {
         await addDoc(collection(db, 'reservations'),{
             mediName,
             name:users[0].name,
+            email:user.email,
             tel:tel,
             birth:birth,
             mediDate,
@@ -77,18 +78,10 @@ const Reservation = () => {
     const chkhandleReserv = async(e)=>{
         e.preventDefault();
         try{
-            // const res = await getDocs(query(collection(db,'users'),where('uid','==',uid)))
-            // const userInfo = await res.data.map((rowdata)=>({
-            //     mediName,
-            //     name:rowdata.name,
-            //     tel:rowdata.tel,
-            //     birth:rowdata.birth,
-            //     mediDate,
-            //     mediTime
-            // }))
             await addDoc(collection(db, 'reservations'), {
                 mediName,
                 name:users[0].name,
+                email:user.email,
                 tel:users[0].tel,
                 birth:users[0].birth,
                 mediDate,
@@ -138,10 +131,7 @@ const Reservation = () => {
 
                                 <div className="cho-time">
                                     <span>시간 선택
-                                <a onClick={()=>{ 
-                                    setVisible(!visible);
-                                }}
-                                >
+                                <a onClick={()=>{setVisible(!visible);}}>
                                     {visible ? <IoIosArrowDropup size={20}/> : <IoIosArrowDropdown size={20}/>}
                                 </a>
                                 </span></div>
@@ -170,10 +160,7 @@ const Reservation = () => {
     
                                     <div className="cho-time">
                                         <span>시간 선택
-                                    <a onClick={()=>{ 
-                                        setVisible(!visible);
-                                    }}
-                                    >
+                                    <a onClick={()=>{setVisible(!visible);}}>
                                         {visible ? <IoIosArrowDropup size={20}/> : <IoIosArrowDropdown size={20}/>}
                                     </a>
                                     </span></div>
@@ -182,10 +169,7 @@ const Reservation = () => {
                                         <button onClick={handleReserv}>예약하기</button>
                                     </div>
                                 </div>
-                            )
-                                
-                            }
-                            
+                            )}                    
                         </div>                    
                     </div>
                      ))}  

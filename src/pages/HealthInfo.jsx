@@ -3,15 +3,17 @@ import HealthCard from '../card/HealthCard';
 import { healthyInfo } from '../data/data';
 import '../assets/css/card.css';
 import TopNav from '../layout/TopNav';
+import LoggedTop from '../layout/LoggedTop';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdOutlineKeyboardArrowRight  } from "react-icons/md";
 import Footer from '../layout/Footer';
+import { useAuthValue } from '../context/AuthProvider';
 
 
 const HealthInfo = () => {
-
+const {isLogged} = useAuthValue();
   return (
     <>
-    <TopNav/>
+    {isLogged? (<LoggedTop />):(<TopNav/>)}
         <div className="container healthinfo-page">
                 <h1 className='text-center pb-5'>건강정보</h1>                 
                 <div className='row d-flex pt-5'>

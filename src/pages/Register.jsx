@@ -1,8 +1,8 @@
-import React,{useEffect, useState} from 'react'
+import React,{useEffect, useRef, useState} from 'react'
 import { useNavigate } from 'react-router-dom';
 import { auth, db } from '../config/firebase';
 import { collection, addDoc ,serverTimestamp } from 'firebase/firestore';
-import { createUserWithEmailAndPassword, updateProfile} from 'firebase/auth';
+import { createUserWithEmailAndPassword, getIdToken, signInWithEmailAndPassword, updateProfile} from 'firebase/auth';
 
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
@@ -15,6 +15,7 @@ const Register = () => {
   const [cperr, setCperr] =useState('');
   const [chkpass, setChkpass] = useState('');
   const [regEmail, setRegEmail] = useState('');
+  const focus = useRef(null);
   const navigate = useNavigate();
 
   const user = auth.currentUser;
@@ -65,43 +66,49 @@ const handleSubmit = async(e)=>{
       alert('별 표시부분은 필수 입력칸 입니다.');
     }else{
       try{
-        // await createUserWithEmailAndPassword(auth, email, pass) //가입 
-        //   .then( await updateProfile(user,{displayName:name}))
-        //   .then( await addDoc(collection(db, 'users'), { //유저정보 저장
-        //     timestamp:serverTimestamp(),
-        //     email:email,
-        //     name:name,
-        //     uid:user.uid
-        //   }))
-        
-        const {join} = await createUserWithEmailAndPassword(auth, email, pass);
-        await updateProfile(user, {displayName:name})
-          .then(await addDoc(collection(db,'users'),{
-            timestamp:serverTimestamp(),
-            email,
-            name,
-            uid:user.id
-          }))
-        
-
-          // .then(()=>{updateProfile(user, {displayName:name})})
-          // .then(()=>{addDoc(collection(db, 'users'), {
-          //   timestamp:serverTimestamp(),
-          //   email,
-          //   name,
-          //   uid:user.id
-          // })})
+        createUserWithEmailAndPassword(auth, email, pass)
+          .then((res)=>{
+            console.log(res.user);
+            updateProfile(res.user, {displayName:name})
+            .then(()=>{
+              addDoc(collection(db, 'users'),{
+                timestamp:serverTimestamp(),
+                email,
+                name,
+                uid:res.user.uid
+              })
+            })
+          })
           
+          .catch((err)=>{
+            console.error('error:',err);
+          })
+
+        // const join = await createUserWithEmailAndPassword(auth, email, pass);
+        // console.log(join.user);
+        // // updateProfile(user, {displayName:name});
+        // // setName(()=>user.displayName);
+        // addDoc(collection(db, 'users'),{
+        //   timestamp:serverTimestamp(),
+        //   email:email,
+        //   name:user.displayName,
+        //   uid:user.uid
+        // })
+        
         window.alert('회원가입이 완료되었습니다.');
         navigate('/login');
-        return join;
+        // return join.user;
       }catch(err){
+        if(err.code == 'auth/email-already-in-use'){
+          window.alert(`이미 사용중인 이메일입니다.\n다시 입력해주세요.`);
+          return focus.current.focus();
+        }
         console.error('register error',err);
       }
       
     }
   }
-  
+
 
   return (
     <>
@@ -119,7 +126,7 @@ const handleSubmit = async(e)=>{
                 <div className='my-4'>
                   <label htmlFor="email" className='mb-2'>이메일 <span className="text-danger">*</span></label>
                   <div className="input-group w-50">
-                    <input type="text" name="email" className="form-control" value={email} onChange={emailReg} placeholder='이메일'/>
+                    <input type="text" name="email" className="form-control" value={email} onChange={emailReg} placeholder='이메일' ref={focus}/>
                   </div>
                   {
                       regEmail !== '' ? (<div className='text-danger'>{regEmail}</div>):null

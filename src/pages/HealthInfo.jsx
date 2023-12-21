@@ -15,7 +15,8 @@ const {isLogged} = useAuthValue();
     <>
     {isLogged? (<LoggedTop />):(<TopNav/>)}
         <div className="container healthinfo-page">
-                <h1 className='text-center pb-5'>건강정보</h1>                 
+          <hr></hr>
+                <h2 className='pb-5'>건강정보</h2>                 
                 <div className='row d-flex pt-5'>
 
                     { healthyInfo.map((item) => {

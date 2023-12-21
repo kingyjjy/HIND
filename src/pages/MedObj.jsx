@@ -1,6 +1,6 @@
 import React,{useState, useEffect} from 'react'
 import axios from 'axios'
-import { useLocation } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import TopNav from '../layout/TopNav'
 import Footer from '../layout/Footer';
 import '../assets/css/medobj.css';
@@ -43,7 +43,7 @@ useEffect(()=>{
           <div className="obj-list">
             <div className='list-header'><a href="#">병원명</a><span>주소</span></div>
             {list.map((blogData, idx)=>{
-                            return <div className='lists' key={idx}><a href="#">{blogData.BIZPLC_NM}</a>
+                            return <div className='lists' key={idx}><Link to="/detail" state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR, lat : blogData.REFINE_WGS84_LAT, logt : blogData.REFINE_WGS84_LOGT}}>{blogData.BIZPLC_NM}</Link>
                                   <span>{blogData.REFINE_LOTNO_ADDR}</span>
                               </div>;
                         })} 

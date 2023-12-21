@@ -1,24 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;200;300;400;500;600;700;800;900&display=swap');
-
-body{
-    /* overflow: hidden; */
-    font-family: 'Noto Sans KR', sans-serif;
-}
 .map-container h2{
     margin-top: 80px;
     font-weight: 600;
   }
 
 .map-container h2 span{
-    color: #bbd0c6;
+    color: #3E54AC;
     font-weight: 600;
   }
-
-  /* .map-container h2 p{
-    font-size: 11px;
-    margin-top: 12px;
-    color: #a39f9f;
-  } */
 
 .map-container h4{
     font-size: 15px;

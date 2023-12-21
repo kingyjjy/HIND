@@ -12,7 +12,6 @@ import Register from './pages/Register';
 import BookMark from './pages/BookMark';
 import NotLogin from './pages/NotLogin';
 import UserinfoEdit from './pages/UserinfoEdit';
-import SearchList from './pages/SearchList';
 import HealthInfo from './pages/HealthInfo';
 import ReservList from './pages/ReservList';
 import ObjList from './components/ObjList'
@@ -52,7 +51,6 @@ const App = () => {
           <Route path='/login' element={<Login/>}/>
           <Route path='/register' element={<Register userinfo={userinfo} isLogged={isLogged}/>}/>
           <Route path='/notlogin' element={<NotLogin/>}/>
-          {/* <Route path='/searchlist' element={<SearchList/>}/> */}
           <Route path='/searchapi' element={<SearchApi/>}/>
           <Route path='/healthinfo' element={<HealthInfo/>}/>
           <Route path='/detail' element={<InfoDetail/>}/>

@@ -76,8 +76,8 @@
   
   /* healthInfo.jsx */
 
-  .healthinfo-page h1{
-    padding-top: 200px;
+  .healthinfo-page h2{
+    padding-top: 100px;
   }
   .paging{
     width: 450px;

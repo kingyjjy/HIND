@@ -138,7 +138,7 @@ const Popup = () => {
               <p>아래 정보로 로그인 후 사이트를 이용해보세요!</p>
             </div>
             <div className={styles.sample}>
-              <p className='Sid'>아이디 : <span>test3@test.com</span></p>
+              <p className='Sid'>아이디 : <span>test@test.com</span></p>
               <p className='Spass'>비밀번호 : <span>123123</span></p>
             </div>
           </div>

@@ -10,8 +10,14 @@
     border-radius: 50px !important;
   }
   .search-world .sicon{
-    top: 20px;
-    left: 530px;
+    top: 15px;
+    left: 600px;
+    color: #fff;
+    
+  }
+
+  .search-world .btn{
+    background-color: #3E54AC;
   }
   .textbox{
     color: #fff;

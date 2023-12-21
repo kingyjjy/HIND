@@ -1,9 +1,9 @@
 import React,{useState} from 'react'
 import {FcGoogle} from 'react-icons/fc'
-import {SiKakaotalk, SiFacebook} from 'react-icons/si'
+import {SiGithub, SiFacebook} from 'react-icons/si'
 import { Link, useNavigate } from 'react-router-dom'
 import { auth, db } from '../config/firebase'
-import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider } from 'firebase/auth'
+import { signInWithEmailAndPassword, GoogleAuthProvider, signInWithPopup, FacebookAuthProvider, GithubAuthProvider } from 'firebase/auth'
 import { addDoc, collection } from 'firebase/firestore'
 
 
@@ -74,7 +74,24 @@ const Login = () => {
     })
     .catch((err)=>alert(err.message))
   }
-  //kakaosign
+  //githubsign
+  const handleGithubsign = () =>{
+    const gitProvider = new GithubAuthProvider();
+    signInWithPopup(auth, gitProvider)
+    .then(async()=>{
+      setName(()=>user.displayName)
+      setProfile(()=>user.photoURL)
+      setEmail(()=>user.email)
+      await addDoc(collection(db, 'users'),{
+        name:user.displayName,
+        email:user.email,
+        uid:user.uid
+      })
+      navigate('/')
+    })
+    .catch((err)=>alert(err.message))
+  };
+
 
     
 
@@ -108,7 +125,7 @@ const Login = () => {
                   
                   <div className="d-flex justify-content-between mx-5 mt-3">
                     <Link to="#" onClick={handleGooglesign}><FcGoogle size={30}/></Link>
-                    <Link to=""><SiKakaotalk size={30} color='yellow'/></Link>
+                    <Link to="" onClick={handleGithubsign}><SiGithub size={30} /></Link>
                     <Link to="#" onClick={handleFacebooksign}><SiFacebook size={30} color='darkblue'/></Link>
                   </div>
                 </div>

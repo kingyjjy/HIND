@@ -1,6 +1,6 @@
 # HIND
 
-react + firebase 기반으로 제작된 김포 지역 병원 찾기 웹 사이트
+react + firebase 기반으로 제작된 김포 병원 찾기 웹 사이트
 <br/><br/>
 
 ## 	:bookmark_tabs: 프로젝트 소개
@@ -80,37 +80,53 @@ react + firebase 기반으로 제작된 김포 지역 병원 찾기 웹 사이�
 #### 김연지 (https://github.com/kingyjjy)
 - 회원가입
   -  유효성 검사
+  -  페이지 구현
 - 로그인
-  - 간편 소셜 로그인 ( 구글, 카카오, 페이스북 )
+  - 간편 소셜 로그인 ( 구글, 깃허브, 페이스북 )
+  - 페이지 구현
 - 로그아웃
+- TOPNAV, FOOTER, SEARCHBANNER 구현
 - 마이페이지
-  - offcanvas
+  - SIDE NAV 구현( offcanvas )
   - 내정보
   - 즐겨찾기
   - 예약내역
   - 로그아웃
 - 내 정보
-  - 회원정보 수정
+  - 페이지 구현
+  - 회원정보 수정 ( react-daum-postcode 주소 가져오기 )
 - 예약하기
   - 회원정보 가져오기
 - 예약 내역
   - 예약 취소
 - 즐겨찾기
-  - 페이지구현
+  - 페이지 구현
+  - 내장함수 map
+- 서버구현 및 세팅
+    - firebase
 
 #### 최민정 (https://github.com/kjh27ss)
+- 로고
+  - Figma 제작
 - 지도
+  - 페이지 구현 
 - 카테고리
   - 공공데이터 api
+  - 내장함수 map
 - 건강정보
+  - 페이지 구현
+  - 내장함수 map
   - react-splide
 - 팝업창
-  - 쿠키
+  - react-cookie
 - 병원상세
+  - 페이지 구현 
   - 카카오맵 api
 - 예약하기, 예약 내역
-  - 페이지구현
-- 진료과, 지역찾기
+  - 페이지 구현
+- 진료과
+  - 페이지 구현  
+- 지역찾기
   - api
 - ScrollTop
 - 검색하기

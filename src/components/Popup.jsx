@@ -3,9 +3,6 @@ import styles from '../assets/css/popup.module.css';
 import { useCookies } from 'react-cookie';
 import { RiCloseLine } from "react-icons/ri";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { SiGithub } from "react-icons/si";
-import { GoPin } from "react-icons/go";
-import { FaMapPin } from "react-icons/fa";
 
 const Popup = () => {
   const [open, setOpen] = useState(true); // 쿠키 팝업
@@ -49,15 +46,13 @@ const Popup = () => {
     }else setHasCookie(false);
   }, []);
 
-  // 닫기 버튼을 누를 때마다 실행될 코드.
+  // 닫기 버튼을 누를 때
   useEffect(() => {
-    // 체크되지 않은 상태에서 모달을 닫을 경우
     if (!checked && !open) {
       return;
     }
-    // 체크된 상태에서 모달을 닫을 경우
     if (checked && !open) {
-      //쿠키를 저장하는 핵심 코드
+      //쿠키를 저장
       const expires = getExpiredDate(1);
       setCookies("smile_cookie", true, { path: "/", expires });
     }

@@ -13,7 +13,7 @@ react + firebase 기반으로 제작된 김포 병원 찾기 웹 사이트
 <br/><br/>
 
 ## 	:link: 배포주소
-> 도메인 : 링크
+> 도메인 : https://hospitalweb-f4342.web.app/main
 <br/><br/>
 
 

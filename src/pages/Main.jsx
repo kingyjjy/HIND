@@ -10,8 +10,6 @@ import ApiList from '../components/ApiList'
 import Popup from '../components/Popup'
 import { auth } from '../config/firebase'
 
-
-
 const Main = () => {
   const {isLogged} = useAuthValue();
   const user =auth.currentUser;

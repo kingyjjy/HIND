@@ -46,7 +46,7 @@ const InfoDetail = () => {
                                 </span>
                             </h1>
                             <p><span>주소 : </span>{location.state.address}</p>
-                            <p className='mb-5'><span>대표번호 : </span>031-1234-1234</p>
+                            <p className='mb-5'><span>대표번호 : </span>{location.state.tel}</p>
                         </div>
                         <div className="time-box d-flex">
                             <div className="col-8">    

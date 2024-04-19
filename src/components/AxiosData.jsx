@@ -136,7 +136,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="All">
                         <div className="row">
                             {data.map((blogData, idx)=>{
-                                return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소}}>{blogData.상호명}</Link></div>;
+                                return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })} 
                         </div>
                     </Tab.Pane>
@@ -155,7 +155,7 @@ const AxiosData = ({burl}) => {
                         <div className='row'>
                             {tooth.map((blogData, idx)=>{
                                         return <div key={idx} className='col-4 tab-list'><Link to="/detail" 
-                                        state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR}}>{blogData.상호명}</Link></div>;
+                                        state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>
@@ -164,7 +164,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="sanbu">
                         <div className="row">
                             {sanbu.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR}}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}        
                         </div>
                     </Tab.Pane>
@@ -173,7 +173,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="surgery">
                         <div className="row">
                             {surgery.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR}}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>
@@ -182,7 +182,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="pediatrics">
                         <div className="row">
                             {pediatrics.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR}}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>
@@ -191,7 +191,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="han">
                         <div className="row">
                             {han.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, }}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>
@@ -200,7 +200,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="skin">
                         <div className="row">
                             {skin.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, }}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>
@@ -209,7 +209,7 @@ const AxiosData = ({burl}) => {
                     <Tab.Pane eventKey="eyes">
                         <div className="row">
                             {eyes.map((blogData, idx)=>{
-                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.BIZPLC_NM, }}>{blogData.상호명}</Link></div>;
+                                    return <div key={idx} className='col-4 tab-list'><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link></div>;
                             })}
                         </div>
                     </Tab.Pane>

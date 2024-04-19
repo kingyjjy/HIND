@@ -12,19 +12,13 @@ const MedObj = ({burl}) => {
 
   const getList = async() => {
     try{
-        const response = await axios.get(burl);
-        const test =response.data.SynthesizeHospital[1].row;            
+          const res = await axios.get(burl);
+          const test = res.data.data;         
         
-        // 편의점 제외한 전체 데이터
-        const result = test.filter(elem => elem.TREAT_SBJECT_CONT !== null);
-        console.log(result);      
-        
-        // 진료과
-        const meobj = result.filter((elem)=>{
-          return (elem.BIZPLC_NM.includes(objname));
+          // 진료과
+          const meobj = test.filter((elem)=>{
+            return (elem.상호명.includes(objname));
       })
-      console.log(meobj);
-
         setList(meobj);
     }catch(e){
         console.log(e);
@@ -39,12 +33,11 @@ useEffect(()=>{
         <TopNav />
         <div className="container obj-title d-flex flex-column min-vh-100">
           <h1 className='text-center'>{objname}<p>진료과목별 전체 리스트입니다.</p></h1>
-          
           <div className="obj-list">
             <div className='list-header'><a href="#">병원명</a><span>주소</span></div>
             {list.map((blogData, idx)=>{
-                            return <div className='lists' key={idx}><Link to="/detail" state={{ title : blogData.BIZPLC_NM, address : blogData.REFINE_LOTNO_ADDR, lat : blogData.REFINE_WGS84_LAT, logt : blogData.REFINE_WGS84_LOGT}}>{blogData.BIZPLC_NM}</Link>
-                                  <span>{blogData.REFINE_LOTNO_ADDR}</span>
+                            return <div className='lists' key={idx}><Link to="/detail" state={{ title : blogData.상호명, address : blogData.소재지주소, tel : blogData.전화번호}}>{blogData.상호명}</Link>
+                                  <span>{blogData.소재지주소}</span>
                               </div>;
                         })} 
           </div>

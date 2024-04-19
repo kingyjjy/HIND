@@ -13,12 +13,9 @@ const SearchList = ({burl}) => {
 
     const getSearch = async() => {
       try{
-          const res = await axios.get(burl);
-          const test = res.data.SynthesizeHospital[1].row;
-
-          const result = test.filter(elem => elem.TREAT_SBJECT_CONT !== null);
-  
-          setData(result);
+            const res = await axios.get(burl);
+            const test = res.data.data;  
+            setData(test);
       }catch(e){
           console.log(e);
       }
@@ -32,12 +29,12 @@ const SearchList = ({burl}) => {
   }
 
   const handleClick = () => {
-    setFilters(data.filter(elem => elem.BIZPLC_NM.includes(text.toLowerCase())))
+    setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())))
   }
 
   const onSubmitSearch = (e) => {
     if(e.key === 'Enter'){
-      setFilters(data.filter(elem => elem.BIZPLC_NM.includes(text.toLowerCase())))
+      setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())))
     }
   }
 
@@ -55,9 +52,9 @@ const SearchList = ({burl}) => {
             <div className="obj-list mt-5 mb-5">
             <div className='list-header'><a href="#">병원명</a><span>주소</span></div>
             {
-              filters.map(elem => <div className='lists' key={elem.BIZPLC_NM}>
-                <Link to="/detail" state={{ title : elem.BIZPLC_NM, address : elem.REFINE_LOTNO_ADDR, lat : elem.REFINE_WGS84_LAT, logt : elem.REFINE_WGS84_LOGT}}>{elem.BIZPLC_NM}</Link>
-                                  <span>{elem.REFINE_LOTNO_ADDR}</span>
+              filters.map(elem => <div className='lists' key={elem.상호명}>
+                <Link to="/detail" state={{ title : elem.상호명, address : elem.소재지주소, tel : elem.전화번호}}>{elem.상호명}</Link>
+                                  <span>{elem.소재지주소}</span>
               </div>)
             }
           </div>

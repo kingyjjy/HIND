@@ -6,9 +6,7 @@ import '../assets/css/axiosdata.css';
 
 const AxiosData = ({burl}) => {
     const location = useLocation();
-    // console.log(location);
     const area = location.state.name;
-    console.log(area);
 
     const [data,setData] = useState([]);
 
@@ -26,7 +24,6 @@ const AxiosData = ({burl}) => {
         try{
             const res = await axios.get(burl);
             const test = res.data.data;
-            console.log(test);  
 
             // 지역
             const aname = test.filter((elem)=>{
@@ -90,7 +87,6 @@ const AxiosData = ({burl}) => {
     useEffect(()=>{
         getUser();
     },[area]);
-
 
   return (
     <>

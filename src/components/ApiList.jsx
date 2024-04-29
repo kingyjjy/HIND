@@ -7,7 +7,9 @@ const burl = `https://api.odcloud.kr/api/15036627/v1/uddi:0f3fb09a-d273-482f-967
 
 const ApiList = () => {
   return (
-    <AxiosData burl={burl}/>
+    <>
+      <AxiosData burl={burl}/>
+    </>
   )
 }
 

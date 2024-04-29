@@ -12,7 +12,7 @@ const TopNav = () => {
     <>  
         <Navbar expand='lg' className="navbar navbar-expand-lg bg-white">
             <Container className='d-flex justify-content-between'>
-                <Navbar.Brand href='#main' className='col-3 link'><img src="images/logo.png" alt="logo" /></Navbar.Brand>
+                <Navbar.Brand href='/' className='col-3 link'><img src="images/logo.png" alt="logo" /></Navbar.Brand>
                 <Navbar.Toggle aria-controls="navtoggle"/>
                 <Navbar.Collapse id="navtoggle">
                     <Nav className='col-9 my-3' style={{flexGrow:'0'}}>

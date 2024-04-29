@@ -46,17 +46,12 @@
   }
   
   .nav-tabs{
-    /* border-bottom: 1px solid #3E54AC !important; */
     border-bottom: none !important;
   }
   
   .nav-tabs .nav-link{
     border-bottom: none !important;
   }
-  
-  /* .nav-item{
-    padding: 1px;
-  } */
   
   .nav-item > .active{
     border: 3px solid #3E54AC !important;

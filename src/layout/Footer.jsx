@@ -1,19 +1,20 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {RiKakaoTalkLine,RiGithubFill,RiInstagramLine,RiTwitterXFill,RiGlobalLine,RiHome4Fill,RiMailFill,RiPhoneLine} from 'react-icons/ri'
 
 const Footer = () => {
   return (
-    <footer className='footer py-5 mt-auto bg-secondary'>
+    <footer className='footer py-5 mt-auto ' style={{backgroundColor:'#435585'}}>
         <div className="container text-center text-lg-start">
             <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
                 <div className="me-5 d-none d-lg-block">
                     <span className='text-white fs-6'>우리가 만든 홈페이지를 구경해보시고 연락주세요!!</span>
                 </div>
                 <div>
-                    <a href="#" className="me-4 link text-white"><RiKakaoTalkLine size={25}/></a>
-                    <a href="#" className="me-4 link text-white" ><RiGithubFill size={25}/></a>
-                    <a href="#" className="me-4 link text-white"><RiInstagramLine size={25}/></a>
-                    <a href="#" className="me-4 link text-white"><RiTwitterXFill size={25}/></a>
+                    <Link to="#" className="me-4 link text-white"><RiKakaoTalkLine size={25}/></Link>
+                    <Link to="#" className="me-4 link text-white" ><RiGithubFill size={25}/></Link>
+                    <Link to="#" className="me-4 link text-white"><RiInstagramLine size={25}/></Link>
+                    <Link to="#" className="me-4 link text-white"><RiTwitterXFill size={25}/></Link>
                 </div>
             </section>
             <section>
@@ -31,9 +32,9 @@ const Footer = () => {
                             <h6 className="text-uppercase fw-bold mb-4 text-white fs-4">
                                 My Page
                             </h6>
-                            <p><a href="#" className="link text-white font-weight-light">내 정보</a></p>
-                            <p><a href="#" className="link text-white font-weight-light">즐겨찾기</a></p>
-                            <p><a href="#" className="link text-white font-weight-light">예약내역</a></p>
+                            <p><Link to="/info" className="link text-white font-weight-light">내 정보</Link></p>
+                            <p><Link to="/bookmark" className="link text-white font-weight-light">즐겨찾기</Link></p>
+                            <p><Link to="/reserv-list" className="link text-white font-weight-light">예약내역</Link></p>
                         </div>
                         <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                             <h6 className="text-uppercase fw-bold mb-4 text-white fs-4">Contact</h6>

@@ -36,3 +36,13 @@
     background-color: rgb(248, 253, 255);
     overflow: hidden;
 }
+
+/* userinfoedit */
+.uneditbtn{
+    border-color: #3E54AC;
+    color: #3E54AC !important;
+}
+.uneditbtn:hover{
+    background-color: #3E54AC;
+    color: #fff !important;
+}

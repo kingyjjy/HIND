@@ -3,12 +3,11 @@ import styles from '../assets/css/popup.module.css';
 import { useCookies } from 'react-cookie';
 import { RiCloseLine } from "react-icons/ri";
 import { RiErrorWarningLine } from "react-icons/ri";
-import { SiGithub } from "react-icons/si";
-import { GoPin } from "react-icons/go";
 
 const Popup = () => {
   const [open, setOpen] = useState(true); // 쿠키 팝업
   const [popgit, setPopgit] = useState(true);
+  const [testpop, setTestpop] = useState(true);
   const [checked, setChecked] = useState(false);
   const [hasCookie, setHasCookie] = useState(true);
   const [cookies, setCookies] = useCookies();
@@ -21,6 +20,10 @@ const Popup = () => {
   const handleClosegit = () => {
     setPopgit(false);
   };
+
+  const handleClosetest = () => {
+    setTestpop(false);
+  }
 
   // 체크박스 클릭시
   const handleChange = (e) => {
@@ -43,15 +46,13 @@ const Popup = () => {
     }else setHasCookie(false);
   }, []);
 
-  // 닫기 버튼을 누를 때마다 실행될 코드.
+  // 닫기 버튼을 누를 때
   useEffect(() => {
-    // 체크되지 않은 상태에서 모달을 닫을 경우
     if (!checked && !open) {
       return;
     }
-    // 체크된 상태에서 모달을 닫을 경우
     if (checked && !open) {
-      //쿠키를 저장하는 핵심 코드
+      //쿠키를 저장
       const expires = getExpiredDate(1);
       setCookies("smile_cookie", true, { path: "/", expires });
     }
@@ -62,6 +63,12 @@ const Popup = () => {
       return;
     }
   }, [popgit]);
+
+  useEffect(()=> {
+    if(!testpop){
+      return;
+    }
+  }, [testpop]);
 
   return (
     <>
@@ -92,32 +99,45 @@ const Popup = () => {
       ) : (
         ""
       )}
-    </div>
-    <div
+      </div>
+      <div
         className={`${styles.popup_background} ${
           popgit ? "" : styles.disappeared
         }`}  
         >
         <div className={styles.gitpopup}>
-          {/* <RiCloseLine className={styles.closeBtn} onClick={handleClosegit} />
-          <div className={styles.gittop}>GitHub</div>
-            <p className={styles.yjjy}>
-              <GoPin size={25} className={styles.members}/>김연지<a href='https://github.com/kingyjjy' className={styles.address}> 바로가기</a>
-            </p>
-            <p className={styles.joung}>
-              <GoPin size={25} className={styles.members}/>최민정 <a href='https://github.com/kjh27ss' className={styles.address}> 바로가기</a>
-            </p>             */}
             <div className={styles.gtop}>
               <RiCloseLine className={styles.closeBtn} onClick={handleClosegit} />
-              <div className={styles.gittop}>GitHub</div>
+              Team member
             </div>
-            <p className={styles.yjjy}>
-              <GoPin size={25} className={styles.members}/>김연지<a href='https://github.com/kingyjjy' className={styles.address}> 바로가기</a>
-            </p>
-            <p className={styles.joung}>
-              <GoPin size={25} className={styles.members}/>최민정 <a href='https://github.com/kjh27ss' className={styles.address}> 바로가기</a>
-            </p>          
+            <div className={styles.profile}>
+              <p className={styles.yjjy}>
+                김연지<a href='https://github.com/kingyjjy' className={styles.now}>click!</a>
+              </p>
+              <p className={styles.joung}>
+                최민정 <a href='https://github.com/kjh27ss' className={styles.now}>click!</a>
+              </p>    
+            </div>
+                  
+        </div>
+      </div>
+      <div
+        className={`${styles.popup_background} ${
+          testpop ? "" : styles.disappeared
+        }`}>
+      <div className={styles.testpopup}>
+          <div className={styles.testline}>
+            <div className={styles.test}>
+              <RiCloseLine className={styles.closeBtn} onClick={handleClosetest} />
+              TEST
+              <p>아래 정보로 로그인 후 사이트를 이용해보세요!</p>
+            </div>
+            <div className={styles.sample}>
+              <p className='Sid'>아이디 : <span>test@test.com</span></p>
+              <p className='Spass'>비밀번호 : <span>123123</span></p>
+            </div>
           </div>
+        </div>
       </div>
     </>
   );

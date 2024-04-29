@@ -1,15 +1,18 @@
+<<<<<<< HEAD
 .map-container a{
   color: #333;
   text-decoration: none;
 }
 
+=======
+>>>>>>> a8e63f98a632e4a42d1a4d0c6dcf1fabfb0e7604
 .map-container h2{
     margin-top: 80px;
     font-weight: 600;
   }
 
 .map-container h2 span{
-    color: #bbd0c6;
+    color: #3E54AC;
     font-weight: 600;
   }
 

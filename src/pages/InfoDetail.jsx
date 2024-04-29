@@ -6,13 +6,15 @@ import { Link } from 'react-router-dom'
 import { IoBookmarksOutline } from "react-icons/io5";
 import { IoBookmarks } from "react-icons/io5";
 import { useLocation } from 'react-router-dom'
+import LoggedTop from '../layout/LoggedTop'
 import TopNav from '../layout/TopNav';
 import Footer from '../layout/Footer';
 import '../assets/css/infodetail.css';
+import { useAuthValue } from '../context/AuthProvider'
 
 const InfoDetail = () => {
     const location = useLocation();
-
+    const {isLogged} = useAuthValue();
     const [bookmark, setBookmark] = useState(false);
 
     const handleBookmark = () => {
@@ -21,7 +23,7 @@ const InfoDetail = () => {
 
   return (
     <>
-    <TopNav/>
+    {isLogged? <LoggedTop />:<TopNav/> }
         <div className="container detail-all">
             <div className="section">
                 <div className="detail-title mt-5">
@@ -44,7 +46,7 @@ const InfoDetail = () => {
                                 </span>
                             </h1>
                             <p><span>주소 : </span>{location.state.address}</p>
-                            <p className='mb-5'><span>대표번호 : </span>031-1234-1234</p>
+                            <p className='mb-5'><span>대표번호 : </span>{location.state.tel}</p>
                         </div>
                         <div className="time-box d-flex">
                             <div className="col-8">    

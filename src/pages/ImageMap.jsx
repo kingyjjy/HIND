@@ -8,7 +8,6 @@ const ImageMap = () => {
   const data = ['월곶', '하성','통진','대곶','양곡','구래','마산','운양','장기','걸포','북변','감정','사우','풍무','고촌'];
   return (
     <div className='map-container text-center'>
-        {/* <h2 className='text-black pb-5'>우리 동네 병원찾기<p>김포 지역 병원 찾기 서비스입니다.</p></h2> */}
         <h2 className='text-black pb-5'>우리 동네 <span>병원찾기</span></h2>
         <h4 className='location rounded-4 mt-3'><CiLocationOn size={24} />클릭시 해당 지역 페이지로 이동합니다!</h4>
         <div className="top-all">

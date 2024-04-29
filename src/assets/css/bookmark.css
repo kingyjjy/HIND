@@ -1,0 +1,8 @@
+/* bookmark */
+.bookmarkbox{
+    width: 23%;
+    transition: all 0.2s;
+}
+.bookmarkbox:hover{
+    transform: scale(1.1);
+}

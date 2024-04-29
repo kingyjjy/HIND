@@ -6,10 +6,12 @@ import { useAuthValue } from '../context/AuthProvider';
 
 import LoggedTop from '../layout/LoggedTop'
 import Footer from '../layout/Footer'
+import NotLogin from './NotLogin';
 import '../assets/css/userinfo.css'
+import usericon from '../assets/images/usericon.png'
 
 const UserInfo = () => {
-    const {userinfo} = useAuthValue();
+    const {userinfo, isLogged} = useAuthValue();
     const [users, setUsers] = useState([]);
 
     useEffect(()=>{
@@ -47,12 +49,21 @@ const UserInfo = () => {
         <div className='container'>
             <div  className="border-top">
 
-                    <div key={index} className="userinfo mx-5">     
-                        <div className="m-5 p-5 mx-auto border shadow-lg rounded">
+                    <div key={index} className="userinfo mx-5" style={{marginTop:'100px'}}>     
+                        <div className="m-5 p-5 mx-auto border shadow-lg " style={{borderRadius:'20px'}}>
                             <h2 className="text-center mb-5 border-bottom pb-4">내 정보</h2>
+                            <div className="iconbox text-start mb-4 pb-4 mx-1" style={{borderBottom:'1px solid #efefef'}}>
+                                <div className=''>
+                                    {/* <label className='col-3 mt-4 d-block'>사용자 이미지 : </label> */}
+                                    <div className="rounded-circle mx-auto logo" style={{ width:'100px', height:'100px', overflow:'hidden', backgroundImage:`url(${usericon})`}}>
+                                        
+                                    </div>
+                                </div>
+                                
+                            </div>
                             <div  className="text-start mb-4">
                                 <label className='col-2'>이름 : </label>
-                                <input type="text" name="username" readOnly className='w-50' value={user.displayName} />
+                                <input type="text" name="username" readOnly className='w-50' value={userinfo?.displayName} />
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>이메일 : </label>
@@ -62,18 +73,18 @@ const UserInfo = () => {
                                 <label className='col-2'>주소 : </label>
                                 <input type="text" name="username" readOnly className='w-25 mb-2' value={user.zonecode}/>
                                 <input type="text" name="username" readOnly value={user.address} style={{marginLeft:'11.5rem', marginBottom:'0.5rem'}}/>
-                                <input type="text" name="username" readOnly value={user.detailaddress}  style={{marginLeft:'11.5rem'}}/>
+                                <input type="text" name="username" readOnly value={user.detailAddress}  style={{marginLeft:'11.5rem'}}/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>생년월일 : </label>
-                                <input type="date" name="username" readOnly className='w-25'/>
+                                <input type="text" name="username" readOnly className='w-25' value={user.birth}/>
                             </div>
                             <div className="text-start mb-4">
                                 <label className='col-2'>전화번호 : </label>
-                                <input type="text" name="username" readOnly/>
+                                <input type="text" name='tel' value={user.tel}/>
                             </div>
                             <div className='text-center mt-5'>
-                                <Link to="/userinfo-edit" className='btn btn-lg btn-secondary text-white'>정 보 수 정</Link>
+                                <Link to="/userinfo-edit" className='btn btn-lg btn-secondary text-white' style={{backgroundColor:'#3E54AC'}}>정 보 수 정</Link>
                             </div>
                         </div>
                     </div>
@@ -85,9 +96,9 @@ const UserInfo = () => {
     ))
   return (
     <>
-    <LoggedTop/>
-    {showUser}
-    <Footer/>
+        <LoggedTop/>
+        {showUser}
+        <Footer/> 
     </>
   )
 }

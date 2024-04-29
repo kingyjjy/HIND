@@ -1,26 +1,39 @@
-.search-list h1{
-    margin-top: 150px;
-    font-size: 33px;
-}
-
-.searchbox{
-    width: 30%;
+ .search-world{
+    width: 650px;
     text-align: center;
     margin: 0 auto;
-    margin-bottom: 50px;
-}
-
-.searchbox input{
+    margin-top: 40px;
+    padding: 0px 80px;
+  }
+  .search-world input{
     width: 100%;
     border-radius: 50px !important;
+  }
+  .search-world .sicon{
+    top: 15px;
+    left: 600px;
+    color: #fff;
+    
+  }
+
+  .search-world .btn{
+    background-color: #3E54AC;
+  }
+  .textbox{
+    color: #fff;
+  }
+  .textbox h2{
+    font-size: 50px;
+    font-weight: bolder;
+    padding-top: 100px !important;
+  }
+  .searchbox{
+    height: 55px;
+  }
+
+
+  .search-result{
+    height: 1000px;
     border: 3px solid #3E54AC;
-}
-
-.sear-icon{
-    left:300px;
-    top: 12px;
-}
-
-.search-list .search-item{
-    height: 500px;
-}
+    border-radius: 15px
+  }

@@ -3,18 +3,20 @@ import HealthCard from '../card/HealthCard';
 import { healthyInfo } from '../data/data';
 import '../assets/css/card.css';
 import TopNav from '../layout/TopNav';
+import LoggedTop from '../layout/LoggedTop';
 import { MdKeyboardDoubleArrowLeft, MdKeyboardDoubleArrowRight, MdKeyboardArrowLeft, MdOutlineKeyboardArrowRight  } from "react-icons/md";
 import Footer from '../layout/Footer';
+import { useAuthValue } from '../context/AuthProvider';
 
 
 const HealthInfo = () => {
-  const [isMoreView, setIsMoreView] = useState(false);
-
+const {isLogged} = useAuthValue();
   return (
     <>
-    <TopNav/>
+    {isLogged? (<LoggedTop />):(<TopNav/>)}
         <div className="container healthinfo-page">
-                <h1 className='text-center pb-5'>건강정보</h1>                 
+          <hr></hr>
+                <h2 className='pb-5'>건강정보</h2>                 
                 <div className='row d-flex pt-5'>
 
                     { healthyInfo.map((item) => {
@@ -33,9 +35,6 @@ const HealthInfo = () => {
                   <a href="#" className='in'><MdOutlineKeyboardArrowRight size={18} /></a>
                   <a href="#" className='last'><MdKeyboardDoubleArrowRight size={18} /></a>
                 </div>
-                {/* <div className="pplus mb-5">
-                  <a href="#">더보기 ( 1 / 2 )</a>
-                </div> */}
                 
     </div>
     <Footer/>

@@ -1,15 +1,9 @@
-<<<<<<< HEAD
-import React from 'react'
-import TopNav from '../layout/TopNav';
-import '../assets/css/reservlist.css';
-=======
 import React, { useEffect, useState } from 'react'
 import LoggedTop from '../layout/LoggedTop';
 import Footer from '../layout/Footer';
 import '../assets/css/reservlist.css';
 import { collection, deleteDoc, getDocs, query, where, doc } from 'firebase/firestore';
 import { auth,db } from '../config/firebase';
->>>>>>> a8e63f98a632e4a42d1a4d0c6dcf1fabfb0e7604
 
 const ReservList = () => {
     const [revList, setRevList] = useState([]);

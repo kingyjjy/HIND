@@ -10,17 +10,28 @@ const SearchList = ({burl}) => {
   const [data,setData] = useState([]); // api data 담기
   const [text, setText] = useState(''); // input 입력되는 글자
   const [filters, setFilters] = useState(data); // 필터된 data
-  const [maitext , setMaitext] = useState(); // main 담기
 
   // main
   const location = useLocation();
+  const area = location.state.area;
   const item = location.state.mtext;
 
   const getSearch = async() => {
     try{
           const res = await axios.get(burl);
-          const test = res.data.data;  
-          setData(test);
+          const test = res.data.data; 
+
+          // 지역
+          const aname = test.filter((elem)=>{
+            return (elem.소재지주소.includes(area));
+          })
+
+          const maintext = aname.filter((elem) => {
+              return elem.상호명.includes(item.toLowerCase());
+            })
+
+          setData(aname);
+          setFilters(maintext);
 
     }catch(e){
       console.log(e);
@@ -28,27 +39,31 @@ const SearchList = ({burl}) => {
   }
   useEffect(() => {
     getSearch();
-  }, [])
-
-  // main
-  const maintext = data.filter((elem) => {
-    return elem.상호명.includes(item.toLowerCase());
-  })
+  }, [area])
 
   const handleChange = (e) => {
     setText(e.target.value);
   }
 
   const handleClick = () => { // 클릭 검색시
-    setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())));
+    if(text == ''){
+      alert("검색어를 입력해주세요.");
+    }
+    else{
+      setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())));
+    }
   }
 
   const onSubmitSearch = (e) => {
     if(e.key === 'Enter'){
-      setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())))
+      if(text == ''){
+        alert("검색어를 입력해주세요.");
+      }
+      else{
+        setFilters(data.filter(elem => elem.상호명.includes(text.toLowerCase())));
+      }
     }
   }
-
 
   return (
     <>
@@ -63,15 +78,9 @@ const SearchList = ({burl}) => {
             <div className="obj-list mt-5 mb-5">
               <div className='list-header'><a href="#">병원명</a><span>주소</span></div>
               {
-                !text && maintext.map(elem => <div className='lists' key={elem.상호명}>
-                  <Link to="/detail" state={{ title : elem.상호명, address : elem.소재지주소, tel : elem.전화번호}}>{elem.상호명}</Link>
-                                    <span>{elem.소재지주소}</span>
-                </div>)
-              }
-              {
-                text && filters.map(elem => <div className='lists' key={elem.상호명}>
-                  <Link to="/detail" state={{ title : elem.상호명, address : elem.소재지주소, tel : elem.전화번호}}>{elem.상호명}</Link>
-                                    <span>{elem.소재지주소}</span>
+                filters.map(elem => <div className='lists' key={elem.상호명}>
+                   <Link to="/detail" state={{ title : elem.상호명, address : elem.소재지주소, tel : elem.전화번호}}>{elem.상호명}</Link>
+                                     <span>{elem.소재지주소}</span>
                 </div>)
               }
             </div>

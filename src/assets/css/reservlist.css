@@ -1,17 +1,10 @@
 .reserv-list>.reserv-title{
     font-weight: 600;
-<<<<<<< HEAD
-  }
-  
-  .reserv-list{
-    margin-top: 80px;
-=======
     font-size: 33px;
   }
   
   .reserv-list{
     margin-top: 50px;
->>>>>>> a8e63f98a632e4a42d1a4d0c6dcf1fabfb0e7604
   }
   
   .reserv-list>.list-box{
@@ -52,9 +45,5 @@
   
   .list-del>button:hover{
     background-color: #BFACE2;
-<<<<<<< HEAD
-  }
-=======
   }
   
->>>>>>> a8e63f98a632e4a42d1a4d0c6dcf1fabfb0e7604

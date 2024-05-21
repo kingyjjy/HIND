@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { useLocation } from 'react-router-dom'
-import TopNav from '../layout/TopNav';
-=======
-
-
 import React, {useEffect, useState} from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import LoggedTop from '../layout/LoggedTop';
@@ -17,7 +10,6 @@ import Accordion from '../components/Accordion';
 import { QuerySnapshot, addDoc, collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
 import { auth, db } from '../config/firebase';
 
->>>>>>> a8e63f98a632e4a42d1a4d0c6dcf1fabfb0e7604
 
 const Reservation = () => {
     const location = useLocation();

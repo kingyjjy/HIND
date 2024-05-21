@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import {onAuthStateChanged} from 'firebase/auth'
 import {auth} from './config/firebase'
 import { AuthProvider } from './context/AuthProvider';
-
 import Main from './pages/Main'
 import Login from './pages/Login';
 import UserInfo from './pages/UserInfo';
@@ -15,8 +14,11 @@ import UserinfoEdit from './pages/UserinfoEdit';
 import HealthInfo from './pages/HealthInfo';
 import ReservList from './pages/ReservList';
 import ObjList from './components/ObjList';
-
-
+import TopButton from './components/TopButton';
+import ImageMap from './pages/ImageMap';
+import SearchApi from './components/SearchApi';
+import InfoDetail from './pages/InfoDetail';
+import Reservation from './pages/Reservation';
 
 const App = () => {
   const [isLogged, setIsLogged] = useState(false);

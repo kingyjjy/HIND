@@ -1,10 +1,13 @@
 import React, {useState} from 'react' 
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import {BsSearch} from 'react-icons/bs'
 import '../assets/css/main.css'
 import searchbar from '../assets/images/searchbar4.jpg'
 
 const Search = () => {
+  const location = useLocation();
+  const area = location.state.name;
+  
   const [mtext, setMText] = useState(''); // input 입력되는 글자
   const navigate = useNavigate();
 
@@ -13,12 +16,23 @@ const Search = () => {
   }
 
   const handleSearch = () => {
-    navigate("/searchapi", {state:{mtext:mtext}});
+    if(mtext == ''){
+      alert("검색어를 입력해주세요.");
+    }
+    else{
+      navigate("/searchapi", {state:{mtext:mtext, area:area}});
+    }
   }
 
   const onSubmitSearch = (e) => {
     if(e.key === 'Enter'){
-      navigate("/searchapi", {state:{mtext:mtext}});
+      if(mtext == ''){
+        alert("검색어를 입력해주세요.");
+      }
+      else{
+        navigate("/searchapi", {state:{mtext:mtext, area:area}});
+      }
+      
     }
   }
 
